@@ -1,0 +1,74 @@
+.background{
+  max-width: 1200px;
+}
+.first{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 40px;
+
+}
+.intro{
+  margin-top: 250px;
+  h1{
+    width: 600px;
+  }
+}
+nav{
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  position: relative;
+  transition: all 1s ease;
+  a{
+    font-size: 30px;
+    width: fit-content;
+    position: relative;
+    &:before{
+      content: '';
+      opacity: 0;
+      width: 10px;
+      height: 2px;
+      background: #fff;
+      position: absolute;
+      top: 18px;
+      left: -20px;
+    }
+
+  }
+  #to-works{
+    margin: 36px 0;
+  }
+}
+.link-active{
+  animation: .5s going ease;
+  animation-fill-mode: forwards;
+  &:before{
+    animation: opacity .5s ease;
+    animation-delay: .3s;
+    animation-fill-mode: forwards;
+  }
+}
+.link-disactive{
+  animation: .5s going-out ease;
+  animation-fill-mode: forwards;
+  &:before{
+    opacity: 0;
+  }
+}
+@keyframes opacity {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+@keyframes going {
+  0%{right: 0px;}
+  100%{right: -20px;}
+}
+@keyframes going-out {
+  0%{right: -20px;}
+  100%{right: 0px;}
+}
+.hello{
+  width: 550px;
+  height: 100px;
+}
+
