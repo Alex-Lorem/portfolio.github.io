@@ -1,0 +1,311 @@
+
+.about__content{
+ max-width: 700px;
+}
+.about__subtitle-1{
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+.about__subtitle-2{
+  margin-top: 25px;
+  margin-bottom: 55px;
+}
+.about__text{
+  font-size: 20px;
+  line-height: 27px;
+}
+.about__skills{
+  font-size: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 25px 0;
+  justify-items: center;
+  align-items: flex-end;
+  position: relative;
+}
+.skill-bar{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 107px;
+  margin-bottom: 30px;
+}
+.skill{
+  height: 35px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skill-progress{
+  height: 35px;
+  overflow: hidden;
+  max-width: 600px;
+  img{
+    animation: 130s anim linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes anim {
+    0%{
+      transform: translate(0px,0px);
+    }
+    50%{
+      transform: translate(0px,-350px);
+    }
+    100%{
+      transform: translate(0px,0px);
+    }
+  }
+}
+
+.html{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+.skill-circle-1{
+  width: 200px;
+  height: 400px;
+  transform: translate(0px, 0px);
+  animation: 60s linear texture2;
+  animation-iteration-count: infinite;
+}
+.html-img{
+  background: url("./img/skill-1.jpg");
+}
+.skill-circle-2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #000;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+@keyframes texture2 {
+  0%{transform: translate(0px, 0px)}
+  50%{transform: translate(0px, -200px)}
+  100%{transform: translate(0px, 0px)}
+}
+.js{
+  @extend .html;
+}
+.js-img{
+  background: url("./img/skill-3.jpg");
+  animation-duration: 40s;
+}
+.vue__square-1
+{
+  width: 232px;
+  height: 170px;
+  overflow: hidden;
+
+}
+.vue{
+  width: 232px;
+  height: 170px;
+  position: relative;
+}
+.skill-title{
+  z-index: 10;
+  font-size: 30px;
+  position: absolute;
+}
+.vue__title{
+  top: 25%;
+  left: 40%;
+}
+.vue__square-2{
+  @extend .vue__square-1;
+  width: 216px;
+  height: 120px;
+  position: absolute;
+  top: 17px;
+  left: -13px;
+}
+.vue__triangle-2{
+  position: relative;
+  overflow: hidden;
+  transform: rotate(45deg) skew(10deg,10deg);
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  width: 198px;
+  height: 149px;
+  margin:-100px 0 0 16px;
+}
+.vue__triangle_bg-2{
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  background-size: 100%;
+  transform: skew(-10deg,-10deg) rotate(-45deg) ;
+  transition: .3s;
+  background: #000;
+}
+.vue__triangle-1
+{
+  position: relative;
+  overflow: hidden;
+  transform: rotate(45deg) skew(10deg,10deg);
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  width: 200px;
+  height: 200px;
+  margin:-100px 0 0 16px;
+}
+.vue__triangle_bg-1
+{
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  z-index: -1;
+  background: url('./img/skill-8.jpg');
+  background-size: 100%;
+  background-position: center top;
+  transition: .3s;
+  transform: translate(0px, 96px);
+  animation: 60s linear texture;
+  animation-iteration-count: infinite;
+}
+@keyframes texture {
+  0%{transform: translate(0px, 96px)}
+  50%{transform: translate(0px, -96px)}
+  100%{transform: translate(0px, 96px)}
+}
+.scss{
+  @extend .vue;
+  transform: rotate(180deg);
+}
+.scss__square-1{
+  @extend .vue__square-1;
+}
+.scss__square-2{
+  @extend .vue__square-2;
+}
+.scss__triangle-1{
+  @extend .vue__triangle-1;
+}
+.scss__triangle-2{
+  @extend .vue__triangle-2;
+}
+.scss__triangle_bg-1{
+  @extend .vue__triangle_bg-1;
+  background: url("./img/skill-2.jpg");
+}
+.scss__triangle_bg-2{
+  @extend .vue__triangle_bg-2;
+}
+.scss__title{
+  transform: rotate(180deg);
+  top: 26%;
+  left: 36%;
+}
+.git{
+  @extend .html;
+  border-radius: 0%;
+}
+.git__square-1{
+  width: 200px;
+  height: 400px;
+  background: url("./img/skill-7.jpg");
+  animation: 50s texture3 linear;
+  animation-iteration-count: infinite;
+  transform: translate(0px, -200px);
+}
+@keyframes texture3 {
+  0%{transform: translate(0px, -200px)}
+  50%{transform: translate(0px, 0px)}
+  100%{transform: translate(0px, -200px)}
+}
+.git__square-2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #000;
+}
+.gulp{
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+.gulp__square-1 {
+    width: 150px;
+    height: 150px;
+    background: transparent;
+    position: relative;
+  img{
+    width: 200px;
+    height: 400px;
+    object-fit: none;
+    transform: translate(0px,0px);
+    animation: 50s linear texture4;
+    animation-iteration-count: infinite;
+  }
+  }
+@keyframes texture4 {
+0%{transform: translate(0px,0px)}
+50%{transform: translate(0px,-200px)}
+100%{transform: translate(0px,0px)}
+}
+  .gulp__square-1:before,
+  .gulp__square-1:after {
+    content: "";
+    height: 150px;
+    width: 150px;
+    background: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .gulp__square-1:before {
+    transform: rotate(30deg);
+  }
+  .gulp__square-1:after {
+    transform: rotate(60deg);
+  }
+.gulp__square-2{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  width: 120px;
+  height: 120px;
+  background: #000;
+}
+.gulp__square-2:before,
+.gulp__square-2:after {
+  content: "";
+  height: 120px;
+  width: 120px;
+  background: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.gulp__square-2:before {
+  transform: rotate(30deg);
+}
+.gulp__square-2:after {
+  transform: rotate(60deg);
+}
+.gulp__title{
+  z-index: 10;
+  position: absolute;
+  top: 45px;
+  left: 30px;
+}

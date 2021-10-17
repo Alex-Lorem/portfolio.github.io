@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   padding-left: 40px;
-
+  height: 100vh;
 }
 .intro{
   margin-top: 250px;
@@ -17,12 +17,15 @@ nav{
   display: flex;
   flex-direction: column;
   margin-top: 90px;
+  height: 180px;
+  justify-content: space-between;
   position: relative;
   transition: all 1s ease;
   a{
     font-size: 30px;
     width: fit-content;
     position: relative;
+    transition: all .5s ease;
     &:before{
       content: '';
       opacity: 0;
@@ -33,28 +36,18 @@ nav{
       top: 18px;
       left: -20px;
     }
+    &:hover{
+      margin-left: 20px;
+      &:before{
+            animation: opacity .5s ease;
+            animation-delay: .3s;
+            animation-fill-mode: forwards;
+          }
+    }
+  }
 
-  }
-  #to-works{
-    margin: 36px 0;
-  }
 }
-.link-active{
-  animation: .5s going ease;
-  animation-fill-mode: forwards;
-  &:before{
-    animation: opacity .5s ease;
-    animation-delay: .3s;
-    animation-fill-mode: forwards;
-  }
-}
-.link-disactive{
-  animation: .5s going-out ease;
-  animation-fill-mode: forwards;
-  &:before{
-    opacity: 0;
-  }
-}
+
 @keyframes opacity {
   0%{opacity: 0;}
   100%{opacity: 1;}
@@ -68,7 +61,9 @@ nav{
   100%{right: 0px;}
 }
 .hello{
-  width: 550px;
+  width: 590px;
   height: 100px;
+  font-family: 'ShareTechMono';
+  font-size: 49px;
 }
 
