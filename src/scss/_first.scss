@@ -1,5 +1,9 @@
 .background{
-  max-width: 1200px;
+  flex: 0.65;
+  img{
+    width: 100%;
+    min-height: 100vh;
+  }
 }
 .first{
   display: flex;
@@ -8,7 +12,10 @@
   height: 100vh;
 }
 .intro{
-  margin-top: 250px;
+  flex: 0.35;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   h1{
     width: 600px;
   }
@@ -17,11 +24,12 @@ nav{
   display: flex;
   flex-direction: column;
   margin-top: 90px;
-  height: 180px;
+  height: 230px;
   justify-content: space-between;
   position: relative;
   transition: all 1s ease;
-  a{
+}
+  #to-works, #to-return, #to-about, #to-contacts, #to-skills{
     font-size: 30px;
     width: fit-content;
     position: relative;
@@ -46,7 +54,7 @@ nav{
     }
   }
 
-}
+
 
 @keyframes opacity {
   0%{opacity: 0;}
@@ -61,8 +69,6 @@ nav{
   100%{right: 0px;}
 }
 .hello{
-  width: 590px;
-  height: 100px;
   font-family: 'ShareTechMono';
   font-size: 49px;
 }
