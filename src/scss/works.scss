@@ -1,8 +1,7 @@
 .works{
   @extend .skills;
-  h1{
-    padding-top:100px;
-    margin-bottom:50px;
+  h3{
+    margin-bottom:35px;
   }
   .close{
     top: 50px;
@@ -14,15 +13,20 @@
   @extend .skills__content;
 }
 .works__list{
-  @extend .skills__list;
-  max-width: 1500px;
-  grid-gap: 25px;
-  max-height: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 40% 40%;
+  align-items: flex-end;
+  max-height: unset;
+  height: unset;
+  grid-gap: 50px;
+  max-width: 1200px;
+
 
 }
 .works__item{
-  width: 400px;
-  height: 330px;
+  width: 100%;
+  height: 100%;
   border: 1px #fff solid;
   padding: 30px;
   position: relative;

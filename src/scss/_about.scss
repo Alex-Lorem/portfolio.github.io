@@ -1,24 +1,26 @@
 .about{
-
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: flex-end;
+  @media(max-width: 1500px){
+    height: 75vh;
+  }
+  @include tablets{
+    min-height: 650px;
+  }
 }
 .about__content{
-  max-width: 700px;
-  margin-top: 500px;
-  margin-bottom: 250px;
-  @media(max-width: 1500px) {
-    margin-top: 200px;
-  }
-  @media(max-width: 1100px) {
-    margin-top: 100px;
-    margin-bottom: 170px;
-  }
+  max-width: 640px;
 }
 .about__text{
   margin-top: 50px;
   margin-bottom: 30px;
   font-size: 20px;
   line-height: 27px;
+  background: black;
 }
 #to-return{
   font-size: 30px;
+  padding-bottom: 60px;
 }

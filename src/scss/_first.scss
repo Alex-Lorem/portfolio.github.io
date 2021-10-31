@@ -28,6 +28,10 @@ nav{
   justify-content: space-between;
   position: relative;
   transition: all 1s ease;
+  @media(max-width: 1300px){
+    height: 160px;
+    margin-top: 50px;
+  }
 }
   #to-works, #to-return, #to-about, #to-contacts, #to-skills{
     font-size: 30px;
@@ -52,6 +56,9 @@ nav{
             animation-fill-mode: forwards;
           }
     }
+    @media(max-width: 1300px){
+      font-size: 20px;
+    }
   }
 
 
@@ -71,5 +78,6 @@ nav{
 .hello{
   font-family: 'ShareTechMono';
   font-size: 49px;
+  min-width: 300px;
 }
 
