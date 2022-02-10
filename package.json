@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/Alex-Lorem/portfolio.github.io#readme",
   "devDependencies": {
-    "@babel/core": "^7.15.8",
-    "@babel/preset-env": "^7.15.8",
+    "@babel/cli": "^7.17.0",
+    "@babel/core": "^7.17.2",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
     "browser-sync": "^2.27.5",
+    "controls-state": "^2.0.0",
     "cross-env": "^7.0.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
@@ -38,5 +41,6 @@
     "jquery": "^3.6.0",
     "node-sass": "^6.0.1",
     "sass": "^1.43.2"
-  }
+  },
+  "dependencies": {}
 }

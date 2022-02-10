@@ -1,4 +1,31 @@
+
 window.onload = function () {
+
+// wait for everything to be ready
+
+    var options = {
+        "animate": true,
+        "patternWidth": 285.56,
+        "patternHeight": 285.56,
+        "grainOpacity": 0.05,
+        "grainDensity": 1,
+        "grainWidth": 1,
+        "grainHeight": 1
+    }
+    grained("#wrapper", options);
+//preloader
+    setTimeout(function () {
+
+        $('.preloader').addClass('preloader-disactive');
+
+        setTimeout(function () {
+
+            $('.preloader').addClass('preloader-display');
+
+        },2000);
+
+    },3500);
+
 
 // nav skills
 
