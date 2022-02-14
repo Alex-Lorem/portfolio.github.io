@@ -1,8 +1,9 @@
 #wrapper{
-  background-color:rgb(0, 0, 0)
+  background-color :rgb(10, 10, 10)
 }
 .canvas--wrapper{
   height: 70vh;
+  padding-top: 15px;
 }
 .plane {
   /* define the size of your plane */
@@ -22,10 +23,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 35%;
   margin: 0 auto 0 auto;
+  max-width: 600px;
+  padding: 0 20px;
   h1{
     width: 100%;
+  }
+  @include phones{
+    height: auto;
   }
 }
 nav{
@@ -35,37 +40,62 @@ nav{
   position: relative;
   transition: all 1s ease;
 }
-  #to-works, #to-return, #to-about, #to-contacts, #to-skills{
+  #to-works, #to-about, #to-contacts,{
     font-size: 30px;
     width: fit-content;
     position: relative;
-    transition: all .7s ease;
+    transition: all 1s ease;
     &:before{
       content: '';
-      opacity: 0;
-      width: 10px;
-      height: 2px;
-      background: #fff;
       position: absolute;
-      top: 18px;
-      left: -20px;
+      bottom: -5px;
+      right: 0;
+      width: 0;
+      height: 3px;
+      transition: width 1s cubic-bezier(0.25, 1, 0.5, 1);
 
     }
-    &:hover{
-      margin-left: 25px;
-      &:before{
-        animation: opacitys .5s ease;
-        animation-delay: .3s;
-        animation-fill-mode: forwards;
-
-      }
-    }
-    @media(max-width: 1300px){
+    @include phones{
       font-size: 20px;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      &:hover::before{
+        left: 0;
+        right: auto;
+        width: 100%;
+      }
     }
   }
 
+#to-about{
+  &:before{
+    background: #c31432;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #240b36, #c31432);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #240b36, #c31432); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+  }
+}
+#to-contacts{
+  &:before{
+    background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+}
+#to-skills{
+  &:before{
+    background: #3494E6;
+    background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);
+    background: linear-gradient(to right, #EC6EAD, #3494E6);
+  }
+}
+#to-works{
+  &:before{
+    background: #30E8BF;
+    background: -webkit-linear-gradient(to right, #FF8235, #30E8BF);
+    background: linear-gradient(to right, #FF8235, #30E8BF);
+  }
+}
 
 @keyframes opacitys {
   0%{opacity: 0;}
@@ -76,4 +106,10 @@ nav{
   font-size: 49px;
   min-width: 300px;
 }
-
+@include phones{
+  .first {
+    .intro {
+      height: auto;
+    }
+  }
+}
