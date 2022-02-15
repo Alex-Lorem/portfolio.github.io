@@ -1,4 +1,7 @@
-
+window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+});
 window.onload = function () {
 
 // wait for everything to be ready
@@ -52,7 +55,5 @@ window.onload = function () {
     });
 
     // scroll animations
-
-
 }//даже не думай
 

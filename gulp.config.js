@@ -8,6 +8,7 @@ module.exports = {
     ],
     JS_LIBS : [
         "node_modules/jquery/dist/jquery.js",
+        "node_modules/smooth-scrollbar/dist/smooth-scrollbar.js",
         "src/js/*.js"
     ]
 }

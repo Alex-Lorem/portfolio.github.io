@@ -1,4 +1,4 @@
-#wrapper{
+.scroller{
   background-color :rgb(10, 10, 10)
 }
 .canvas--wrapper{
@@ -16,7 +16,7 @@
   display: none;
 }
 .first{
-  height: 100vh;
+  height: 100%;
 }
 .intro{
   height: 30%;
