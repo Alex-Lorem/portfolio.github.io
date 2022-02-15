@@ -12,7 +12,7 @@ window.onload = function () {
         "grainWidth": 1,
         "grainHeight": 1
     }
-    grained("#wrapper", options);
+    grained("wrapper", options);
 //preloader
     setTimeout(function () {
 
@@ -27,12 +27,6 @@ window.onload = function () {
     },3500);
 
 
-// nav skills
-
-$('#to-skills').click( e=> {
-    e.preventDefault();
-    $('.skills').addClass('section-active');
-});
 
 //nav works
 
@@ -47,34 +41,18 @@ $('#to-skills').click( e=> {
         e.preventDefault();
         $('.contacts').addClass('contacts-active');
     });
-    $('#close-contacts').click( e=> {
-        e.preventDefault();
-        $('.contacts').removeClass('contacts-active');
-
-    });
 //close
-
-    $('.close').click( e=> {
-        e.preventDefault();
-        const $this = $(e.currentTarget);
-        const curSection = $this.closest("section");
-        curSection.addClass('section-disactive');
-        setTimeout(function () {
-            curSection.removeClass('section-active');},1000)
-        setTimeout(function () {
-            curSection.removeClass('section-disactive');},1000)
-    });
 
 //to-about
 
     const firstHeight = document.querySelector('.first').scrollHeight;
     $('#to-about').click(e =>{
         e.preventDefault();
-        $('html,body').animate({scrollTop:firstHeight},3000);
-    });
-    $('#to-return').click(e =>{
-        e.preventDefault();
-        $('html,body').animate({scrollTop:0},1500);
+        $('html,body').animate({scrollTop:firstHeight},2000);
     });
 
+    // scroll animations
+
+
 }//даже не думай
+

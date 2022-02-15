@@ -218,12 +218,51 @@ void main(){
                 </g>
             </svg>
             <nav>
-                <a href="/" id="to-about" >about me</a>
+                <a href="/" id="to-about">about me</a>
                 <a href="/" id="to-works">works</a>
                 <a href="/" id="to-contacts">contacts</a>
             </nav>
         </div>
     </section>
+    <section class="about">
+<!--        <div class="content-container">-->
+<!--            <div class="left-content">-->
+<!--                <div id="text1">Hi! I am Alex</div>-->
+<!--                <div id="text2">Hi! I am Alex, front-end developer currently based in Ukraine</div>-->
+<!--                <div id="text3">Hi! I am Alex, front-end developer currently based in Ukraine. I am studying at the National Aviation University to be a programmer </div>-->
+<!--                <div id="text4">My hobbies are chess and box, also I like reading books and api documentaion </div>-->
+<!--            </div>-->
+<!--            <div class="right-content">-->
+
+
+<!--            </div>-->
+<!--        </div>-->
+        <div class="content-container">
+            <div class="left-content">
+                <blockquote class="textToShow" id="text1">Hi! I am Alex </blockquote>
+                <blockquote class="textToShow" id="text2">Front-end developer currently based in Ukraine</blockquote>
+                <blockquote class="textToShow" id="text3">I am studying at the National Aviation University to be a programmer </blockquote>
+                <blockquote class="textToShow" id="text4">My hobbies are chess and box, also I like reading books and api documentaion </blockquote>
+            </div>
+
+            <div class="right-content">
+                <div class="img-wrapper contentMarker" data-marker-content="text1">
+                    <img src="img/me.png" alt="">
+                </div>
+                <div class="img-wrapper contentMarker" data-marker-content="text2">
+                    <img src="img/map.png" alt="">
+                </div>
+                <div class="img-wrapper contentMarker" data-marker-content="text3">
+                    <img src="img/nau.png" alt="">
+                </div>
+                <div class="img-wrapper contentMarker" data-marker-content="text4">
+                    <img src="img/chess.png" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <section class="works"></section>
 <!--    <a href="https://alex-lorem.github.io/gitogram/#/" target="_blank" class="works__item"><img src="./img/work-1.png" alt=""><div class="hover-text">visit</div></a>-->
 <!--    <a href="https://alex-lorem.github.io/food.github.io/dist/" target="_blank" class="works__item"><img src="./img/work-2.png" alt=""><div class="hover-text">visit</div></a>-->
 <!--    <a href="https://alex-lorem.github.io/wine.github.io/dist/" target="_blank" class="works__item"><img src="./img/work-3.png" alt=""><div class="hover-text">visit</div></a>-->
@@ -351,6 +390,91 @@ void main(){
             }
         }
     }
+</script>
+<script>
+    console.clear();
+
+    gsap.defaults({overwrite: 'auto'});
+
+    gsap.set(".left-content > *", {xPercent: -50, yPercent: -50});
+
+    // Set up our scroll trigger
+    const ST = ScrollTrigger.create({
+        trigger: ".content-container",
+        start: "top top",
+        end: "bottom bottom",
+        onUpdate: getCurrentSection,
+        pin: ".left-content"
+    });
+
+    const contentMarkers = gsap.utils.toArray(".contentMarker");
+
+    // Set up our content behaviors
+    contentMarkers.forEach(marker => {
+        marker.content = document.querySelector(`#${marker.dataset.markerContent}`);
+
+        if(marker.content.tagName === "IMG") {
+            gsap.set(marker.content, {transformOrigin: "bottom"});
+
+            marker.content.enter = function() {
+                gsap.fromTo(marker.content, {autoAlpha: 0, rotateY: -30}, {duration: 0.3, autoAlpha: 1, rotateY: 0});
+            }
+        } else if(marker.content.tagName === "BLOCKQUOTE") {
+            gsap.set(marker.content, {transformOrigin: "left bottom"});
+
+            marker.content.enter = function() {
+                gsap.fromTo(marker.content, {autoAlpha: 0, rotateY: 50}, {duration: 0.3, autoAlpha: 1, rotateY: 0});
+            }
+        }
+
+        marker.content.leave = function() {
+            gsap.to(marker.content, {duration: 0.1, autoAlpha: 0});
+        }
+
+    });
+
+    // Handle the updated position
+    let lastContent;
+    function getCurrentSection() {
+        let newContent;
+        const currScroll = scrollY;
+
+        // Find the current section
+        contentMarkers.forEach(marker => {
+            if(currScroll > marker.offsetTop) {
+                newContent = marker.content;
+            }
+        });
+
+        // If the current section is different than that last, animate in
+        if(newContent
+            && (lastContent == null
+                || !newContent.isSameNode(lastContent))) {
+            // Fade out last section
+            if(lastContent) {
+                lastContent.leave();
+            }
+
+            // Animate in new section
+            newContent.enter();
+
+            lastContent = newContent;
+        }
+
+    }
+
+    const media = window.matchMedia("screen and (max-width: 600px)");
+    ScrollTrigger.addEventListener("refreshInit", checkSTState);
+    checkSTState();
+
+    function checkSTState() {
+        if(media.matches) {
+            ST.disable();
+        } else {
+            ST.enable();
+        }
+    }
+
 </script>
 </body>
 </html>
