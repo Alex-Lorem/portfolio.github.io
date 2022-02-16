@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio</title>
 </head>
-<body>
+<body >
 
 <!--        <div class="content-container">-->
 <!--            <div class="left-content">-->
@@ -270,9 +270,9 @@
 <!--        <section class="blue"></section>-->
 
 
-<div class="scroller">
+<div  class="scroller">
 
-
+    <div id="scroller">
     <section class="first">
         <div class="canvas--wrapper">
             <canvas id="glslCanvas" data-textures="img/mars.png" data-fragment="
@@ -492,7 +492,7 @@
     </section>
 
     <section class="blue"></section>
-
+    </div>
 </div>
 
 <!--    <section class="works"></section>-->
@@ -628,6 +628,10 @@
 
 
 <script>
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
     gsap.registerPlugin(ScrollTrigger);
     let bodyScrollBar = Scrollbar.init(document.body, {
         damping: 0.1,
@@ -717,7 +721,7 @@
         trigger: "section.black",
         scroller: ".scroller",
         scrub: true,
-        markers: true,
+        markers: false,
         pin: true,
         start: () => "top top",
         end: () => "+=" + ((images.length + 1) * window.innerHeight),
