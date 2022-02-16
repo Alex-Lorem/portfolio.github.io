@@ -17,7 +17,8 @@ window.onload = function () {
         "grainWidth": 1,
         "grainHeight": 1
     }
-    grained("#scroller", options);
+    grained("#first", options);
+    grained("#about", options);
 //preloader
     setTimeout(function () {
 

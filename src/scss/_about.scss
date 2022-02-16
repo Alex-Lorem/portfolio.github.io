@@ -31,14 +31,13 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #753500;
 }
 
 .text {
   color: #fff;
 }
 
-.black {
+#about {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51,13 +50,9 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #070707;
 }
 
-.blue {
-  height: 100vh;
-  background-color: #00026d;
-}
+
 
 
 .text-wrap {
@@ -70,36 +65,32 @@
 .panel-text {
   position: absolute;
   left: 0%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
+  top: -15%;
   z-index: 1;
   width: 100%;
   height: 100%;
   font-size: 40px;
-  text-transform: uppercase;
-  font-weight: 900;
   text-align:center;
-  background-color: #070707;
-
   transform:translateY(100%);
   opacity: 0;
 }
 
 .panel-text.blue-text {
-  color: blue;
+
 }
 
 .panel-text.red-text {
-  color: red;
+
 }
 
 .panel-text.purple-text {
-  color: purple;
+  top: -18%;
+
 }
 
 .panel-text.orange-text {
   color: orange;
+  top: -18%;
 }
 
 
@@ -117,15 +108,13 @@
 .panel {
   position: absolute;
   left: 0%;
-  top: 0%;
-  right: 0%;
-  bottom: 0%;
+  top: 15%;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  background: yellow;
+  height: 50%;
   background-size: cover;
-
+  background-repeat: no-repeat;
+  background-position-y: center;
 }
 
 .panel._2 {
@@ -133,24 +122,23 @@
   background: pink;
 }
 
-.panel.blue {
+.panel.me {
   z-index: auto;
+  background-image: url("./img/me.png");
 }
 
-.panel.red {
+.panel.map {
   z-index: auto;
-  background-color: red;
-  background-image: none;
+  background-image: url("./img/map.png");
 }
 
-.panel.orange {
+.panel.nau {
   z-index: auto;
-  background-color: #cf5d00;
-  background-image: none;
+  background-image: url("./img/nau.png");
 }
 
-.panel.purple {
+.panel.chess {
   z-index: auto;
-  background-color: #808;
-  background-image: none;
+  background-image: url("./img/chess.png");
+
 }

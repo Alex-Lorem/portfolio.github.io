@@ -272,8 +272,7 @@
 
 <div  class="scroller">
 
-    <div id="scroller">
-    <section class="first">
+    <section class="first" id="first">
         <div class="canvas--wrapper">
             <canvas id="glslCanvas" data-textures="img/mars.png" data-fragment="
         // Author: Patricio Gonzalez Vivo
@@ -473,26 +472,25 @@
                         </nav>
                     </div>
                 </section>
-    <section class="black">
+    <section class="black" id="about">
 
         <div class="text-wrap">
-            <div class="panel-text blue-text">Blue</div>
-            <div class="panel-text red-text">Red</div>
-            <div class="panel-text orange-text">Orange</div>
-            <div class="panel-text purple-text">Purple</div>
+            <div class="panel-text blue-text">Hi! I am Alex.</div>
+            <div class="panel-text red-text">Front-end developer currently based in Ukraine.</div>
+            <div class="panel-text orange-text">I am studying at the National Aviation University to be a programmer.</div>
+            <div class="panel-text purple-text">My hobbies are chess and box, also I like reading books and api documentaion</div>
         </div>
 
         <div class="p-wrap">
-            <div class="panel blue"></div>
-            <div class="panel red"></div>
-            <div class="panel orange"></div>
-            <div class="panel purple"></div>
+            <div class="panel me"></div>
+            <div class="panel map"></div>
+            <div class="panel nau"></div>
+            <div class="panel chess"></div>
         </div>
 
     </section>
 
     <section class="blue"></section>
-    </div>
 </div>
 
 <!--    <section class="works"></section>-->
@@ -662,7 +660,7 @@
         var tl = gsap.timeline({
 
             scrollTrigger: {
-                trigger: "section.black",
+                trigger: "section#about",
                 scroller: ".scroller",
                 start: () => "top -" + (window.innerHeight*(i+0.5)),
                 end: () => "+=" + window.innerHeight,
@@ -694,7 +692,7 @@
         var tl = gsap.timeline({
 
             scrollTrigger: {
-                trigger: "section.black",
+                trigger: "section#about",
                 scroller: ".scroller",
                 start: () => "top -" + (window.innerHeight*i),
                 end: () => "+=" + window.innerHeight,
@@ -718,7 +716,7 @@
 
     ScrollTrigger.create({
 
-        trigger: "section.black",
+        trigger: "section#about",
         scroller: ".scroller",
         scrub: true,
         markers: false,
