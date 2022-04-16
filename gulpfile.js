@@ -79,7 +79,7 @@ task(
             .pipe(concat("script.min.js",{newLine: ';'}))
             .pipe(gulpif(env === 'prod', babel({
                 presets: ['@babel/env'],
-                compact:false
+                compact: false
             })))
             .pipe(gulpif(env === 'prod', uglify()))
             .pipe(dest("dist"))

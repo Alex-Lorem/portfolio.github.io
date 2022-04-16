@@ -9,266 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Portfolio</title>
 </head>
-<body >
-
-<!--        <div class="content-container">-->
-<!--            <div class="left-content">-->
-<!--                <blockquote class="textToShow" id="text1">Hi! I am Alex </blockquote>-->
-<!--                <blockquote class="textToShow" id="text2">Front-end developer currently based in Ukraine</blockquote>-->
-<!--                <blockquote class="textToShow" id="text3">I am studying at the National Aviation University to be a programmer </blockquote>-->
-<!--                <blockquote class="textToShow" id="text4">My hobbies are chess and box, also I like reading books and api documentaion </blockquote>-->
-<!--            </div>-->
-
-<!--            <div class="right-content">-->
-<!--                <div class="img-wrapper contentMarker" data-marker-content="text1">-->
-<!--                    <img src="img/me.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="img-wrapper contentMarker" data-marker-content="text2">-->
-<!--                    <img src="img/map.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="img-wrapper contentMarker" data-marker-content="text3">-->
-<!--                    <img src="img/nau.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="img-wrapper contentMarker" data-marker-content="text4">-->
-<!--                    <img src="img/chess.png" alt="">-->
-<!--                </div>-->
-<!--                <div class="img-wrapper ">-->
-<!--                    <img src="img/chess.png" alt="">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-
-<!--    </section>-->
-
-
-
-
-
-<!--    <div class="scroller">-->
-
-
-<!--        <section class="first">-->
-
-<!--            <div class="canvas&#45;&#45;wrapper">-->
-<!--                <canvas id="glslCanvas" data-textures="img/mars.png" data-fragment="-->
-<!--// Author: Patricio Gonzalez Vivo-->
-<!--#ifdef GL_ES-->
-<!--precision mediump float;-->
-<!--#endif-->
-
-<!--#define PI 3.1415926535-->
-<!--#define HALF_PI 1.57079632679-->
-
-<!--uniform vec2 u_resolution;-->
-<!--uniform float u_time;-->
-<!--uniform sampler2D u_tex0;-->
-<!--uniform vec2 u_tex0Resolution;-->
-
-<!--uniform sampler2D u_logo; // data/logo.jpg-->
-<!--uniform vec2 u_logoResolution;-->
-
-<!--vec2 scale(vec2 st, float s) {-->
-<!--    return (st-.5)*s+.5;-->
-<!--}-->
-
-<!--vec2 ratio(in vec2 st, in vec2 s) {-->
-<!--    return mix( vec2((st.x*s.x/s.y)-(s.x*.5-s.y*.5)/s.y,st.y),-->
-<!--                vec2(st.x,st.y*(s.y/s.x)-(s.y*.5-s.x*.5)/s.x),-->
-<!--                step(s.x,s.y));-->
-<!--}-->
-
-<!--float circleSDF(vec2 st) {-->
-<!--    return length(st - 0.5) * 2.0;-->
-<!--}-->
-
-<!--vec2 sphereCoords(vec2 _st, float _scale){-->
-<!--    float maxFactor = sin(1.570796327);-->
-<!--    vec2 uv = vec2(0.0);-->
-<!--    vec2 xy = 2.0 * _st.xy - 1.0;-->
-<!--    float d = length(xy);-->
-<!--    if (d < (2.0-maxFactor)){-->
-<!--        d = length(xy * maxFactor);-->
-<!--        float z = sqrt(1.0 - d * d);-->
-<!--        float r = atan(d, z) / 3.1415926535 * _scale;-->
-<!--        float phi = atan(xy.y, xy.x);-->
-<!--        uv.x = r * cos(phi) + 0.5;-->
-<!--        uv.y = r * sin(phi) + 0.5;-->
-<!--    } else {-->
-<!--        uv = _st.xy;-->
-<!--    }-->
-<!--    return uv;-->
-<!--}-->
-
-<!--vec4 sphereTexture(in sampler2D _tex, in vec2 _uv, float _time) {-->
-<!--    vec2 st = sphereCoords(_uv, 1.0);-->
-<!--    float aspect = u_tex0Resolution.y/u_tex0Resolution.x;-->
-<!--    st.x = fract(st.x * aspect + _time);-->
-<!--    return texture2D(_tex, st);-->
-<!--}-->
-
-<!--vec3 sphereNormals(in vec2 uv) {-->
-<!--    uv = fract(uv)*2.0-1.0;-->
-<!--    vec3 ret;-->
-<!--    ret.xy = sqrt(uv * uv) * sign(uv);-->
-<!--    ret.z = sqrt(abs(1.0 - dot(ret.xy,ret.xy)));-->
-<!--    ret = ret * 0.5 + 0.5;-->
-<!--    return mix(vec3(0.0), ret, smoothstep(1.0,0.98,dot(uv,uv)) );-->
-<!--}-->
-
-<!--void main(){-->
-<!--    vec2 st = gl_FragCoord.xy/u_resolution.xy;-->
-<!--    st = scale(st, 1.0);-->
-<!--    st = ratio(st, u_resolution);-->
-
-<!--    vec3 color = vec3(0.0);-->
-<!--    color = sphereTexture(u_tex0, st, u_time * 0.01).rgb;-->
-
-<!--    // Calculate sun direction-->
-<!--    float speedSun = 0.25;-->
-<!--    vec3 sunPos = normalize(vec3(cos(u_time * speedSun - HALF_PI), 0.0, sin(speedSun * u_time - HALF_PI)));-->
-<!--    vec3 surface = normalize(sphereNormals(st)*2.0-1.0);-->
-
-<!--    // Add Shadows-->
-<!--    color *= clamp(dot(sunPos, surface), 0.0, 1.0);-->
-<!--    // Blend black the edge of the sphere-->
-<!--    float radius = 1.0 - circleSDF(st);-->
-<!--    color *= smoothstep(0.001, 0.02, radius);-->
-
-<!--    st = scale(st, 2.);-->
-<!--    color += texture2D(u_logo, st).rgb * step(.0001,st.y) * step(st.y,.999);-->
-
-<!--    gl_FragColor = vec4(color, 1.0);-->
-<!--}-->
-<!--">-->
-
-<!--                </canvas>-->
-<!--            </div>-->
-
-<!--            <div class="intro">-->
-<!--                <svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"-->
-<!--                     class="hello" viewBox="0 0 600 100">-->
-<!--                    <style type="text/css">-->
-
-<!--                        <![CDATA[-->
-
-<!--	                text {-->
-<!--                            filter: url(#filter);-->
-<!--                            fill: white;-->
-
-<!--                            -webkit-font-smoothing: antialiased;-->
-<!--                            -moz-osx-font-smoothing: grayscale;-->
-<!--                        }-->
-<!--                        ]]>-->
-<!--                    </style>-->
-<!--                    <defs>-->
-
-<!--                        <filter id="filter">-->
-<!--                            <feFlood flood-color="black" result="black" />-->
-<!--                            <feFlood flood-color="red" result="flood1" />-->
-<!--                            <feFlood flood-color="limegreen" result="flood2" />-->
-<!--                            <feOffset in="SourceGraphic" dx="3" dy="0" result="off1a"/>-->
-<!--                            <feOffset in="SourceGraphic" dx="2" dy="0" result="off1b"/>-->
-<!--                            <feOffset in="SourceGraphic" dx="-3" dy="0" result="off2a"/>-->
-<!--                            <feOffset in="SourceGraphic" dx="-2" dy="0" result="off2b"/>-->
-<!--                            <feComposite in="flood1" in2="off1a" operator="in"  result="comp1" />-->
-<!--                            <feComposite in="flood2" in2="off2a" operator="in" result="comp2" />-->
-
-<!--                            <feMerge x="0" width="100%" result="merge1">-->
-<!--                                <feMergeNode in = "black" />-->
-<!--                                <feMergeNode in = "comp1" />-->
-<!--                                <feMergeNode in = "off1b" />-->
-
-<!--                                <animate-->
-<!--                                        attributeName="y"-->
-<!--                                        id = "y"-->
-<!--                                        dur ="4s"-->
-
-<!--                                        values = '104px; 104px; 30px; 105px; 30px; 2px; 2px; 50px; 40px; 105px; 105px; 20px; 6ßpx; 40px; 104px; 40px; 70px; 10px; 30px; 104px; 102px'-->
-
-<!--                                        keyTimes = '0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'-->
-
-<!--                                        repeatCount = "indefinite" />-->
-
-<!--                                <animate attributeName="height"-->
-<!--                                         id = "h"-->
-<!--                                         dur ="4s"-->
-
-<!--                                         values = '10px; 0px; 10px; 30px; 50px; 0px; 10px; 0px; 0px; 0px; 10px; 50px; 40px; 0px; 0px; 0px; 40px; 30px; 10px; 0px; 50px'-->
-
-<!--                                         keyTimes = '0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'-->
-
-<!--                                         repeatCount = "indefinite" />-->
-<!--                            </feMerge>-->
-
-
-<!--                            <feMerge x="0" width="100%" y="60px" height="65px" result="merge2">-->
-<!--                                <feMergeNode in = "black" />-->
-<!--                                <feMergeNode in = "comp2" />-->
-<!--                                <feMergeNode in = "off2b" />-->
-
-<!--                                <animate attributeName="y"-->
-<!--                                         id = "y"-->
-<!--                                         dur ="4s"-->
-<!--                                         values = '103px; 104px; 69px; 53px; 42px; 104px; 78px; 89px; 96px; 100px; 67px; 50px; 96px; 66px; 88px; 42px; 13px; 100px; 100px; 104px;'-->
-
-<!--                                         keyTimes = '0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513; 0.548; 0.577; 0.613; 1'-->
-
-<!--                                         repeatCount = "indefinite" />-->
-
-<!--                                <animate attributeName="height"-->
-<!--                                         id = "h"-->
-<!--                                         dur = "4s"-->
-
-<!--                                         values = '0px; 0px; 0px; 16px; 16px; 12px; 12px; 0px; 0px; 5px; 10px; 22px; 33px; 11px; 0px; 0px; 10px'-->
-
-<!--                                         keyTimes = '0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513;  1'-->
-
-<!--                                         repeatCount = "indefinite" />-->
-<!--                            </feMerge>-->
-
-<!--                            <feMerge>-->
-<!--                                <feMergeNode in="SourceGraphic" />-->
-
-<!--                                <feMergeNode in="merge1" />-->
-<!--                                <feMergeNode in="merge2" />-->
-
-<!--                            </feMerge>-->
-<!--                        </filter>-->
-
-<!--                    </defs>-->
-
-<!--                    <g>-->
-<!--                        <text x="0" y="100">Hello there. I am Alex.</text>-->
-<!--                    </g>-->
-<!--                </svg>-->
-<!--                <nav>-->
-<!--                    <a href="/" id="to-about">about me</a>-->
-<!--                    <a href="/" id="to-works">works</a>-->
-<!--                    <a href="/" id="to-contacts">contacts</a>-->
-<!--                </nav>-->
-<!--            </div>-->
-<!--        </section>-->
-
-<!--        <section class="about">-->
-
-<!--            <div class="text-wrap">-->
-<!--                <div class="panel-text blue-text">Blue</div>-->
-<!--                <div class="panel-text red-text">Red</div>-->
-<!--                <div class="panel-text orange-text">Orange</div>-->
-<!--                <div class="panel-text purple-text">Purple</div>-->
-<!--            </div>-->
-
-<!--            <div class="p-wrap">-->
-<!--                <div class="panel blue"></div>-->
-<!--                <div class="panel red"></div>-->
-<!--                <div class="panel orange"></div>-->
-<!--                <div class="panel purple"></div>-->
-<!--            </div>-->
-
-<!--        </section>-->
-
-<!--        <section class="blue"></section>-->
-
+<body>
 
 <div  class="scroller">
 
@@ -288,7 +29,7 @@
         uniform sampler2D u_tex0;
         uniform vec2 u_tex0Resolution;
 
-        uniform sampler2D u_logo; // data/logo.jpg
+
         uniform vec2 u_logoResolution;
 
         vec2 scale(vec2 st, float s) {
@@ -359,7 +100,7 @@
             color *= smoothstep(0.001, 0.02, radius);
 
             st = scale(st, 2.);
-            color += texture2D(u_logo, st).rgb * step(.0001,st.y) * step(st.y,.999);
+
 
             gl_FragColor = vec4(color, 1.0);
         }
@@ -466,19 +207,22 @@
                             </g>
                         </svg>
                         <nav>
-                            <a href="/" id="to-about">about me</a>
-                            <a href="/" id="to-works">works</a>
-                            <a href="/" id="to-contacts">contacts</a>
+                            <a href="" id="to-about">about me</a>
+                            <a href="" id="to-works">works</a>
+                            <a href="#nav-contacts" id="to-contacts">contacts</a>
                         </nav>
                     </div>
                 </section>
-    <section class="black" id="about">
-
+    <section id="about">
+        <div class="about-container">
         <div class="text-wrap">
-            <div class="panel-text blue-text">Hi! I am Alex.</div>
-            <div class="panel-text red-text">Front-end developer currently based in Ukraine.</div>
+            <div class="panel-text">Hi! I am Alex.</div>
+            <div class="panel-text">Front-end developer currently based in Ukraine.</div>
             <div class="panel-text orange-text">I am studying at the National Aviation University to be a programmer.</div>
             <div class="panel-text purple-text">My hobbies are chess and box, also I like reading books and api documentaion</div>
+            <div class="panel-text info-text">My skills:</div>
+            <div class="panel-text info-text"  id="nav-contacts">Get in touch:</div>
+
         </div>
 
         <div class="p-wrap">
@@ -486,247 +230,131 @@
             <div class="panel map"></div>
             <div class="panel nau"></div>
             <div class="panel chess"></div>
+            <div class="panel info" >
+                <div id="info1">
+                <ul>
+                    <li>Vue 3</li>
+                    <li>Javascript</li>
+                    <li>HTML/CSS</li>
+                    <li>Scss</li>
+                    <li>Gulp</li>
+                    <li>Git</li>
+                    <li>Adaptive/cross-browser layout</li>
+                </ul>
+                </div>
+            </div>
+            <div class="panel info"  >
+                <div id="info2">
+                <ul >
+                    <li>
+                        <a href="https://www.instagram.com/selfcare.cmd/" target="_blank">inst</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Alex-Lorem" target="_blank">github</a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/tohaloh" target="_blank">telegram</a>
+                    </li>
+                    <li>
+                        <a class="email" href="mailto:alexandershevchenko2004@gmail.com" target="_blank">email: alexandershevchenko2004@gmail.com</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+
+        </div>
         </div>
 
     </section>
 
-    <section class="blue"></section>
+    <section class="works">
+        <h2>Works:</h2>
+        <div class="slider">
+            <div class="slide active">
+                <div class="text">
+                    <h2>Gitogram/</h2>
+                    <div class="text-description">
+                        Tools:
+                    </div>
+                    <ul>
+                        <li>Vue</li>
+                        <li>Rest API</li>
+                        <li>GitHub OAuth</li>
+                        <li>Axios</li>
+                        <li>Yarn</li>
+                    </ul>
+                    <a class="visit-work" href="https://alex-lorem.github.io/gitogram/#/" target="_blank">Visit</a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="text">
+                    <h2>Food</h2>
+                    <div class="text-description">
+                        Tools:
+                    </div>
+                    <ul>
+                        <li>Aos</li>
+                        <li>Slick slider</li>
+                        <li>Gulp</li>
+                        <li>Adaptive/cross-browser layout</li>
+                        <li>Svg sprite</li>
+                        <li>Npm</li>
+                    </ul>
+                    <a class="visit-work" href="https://alex-lorem.github.io/food.github.io/dist/" target="_blank">Visit</a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="text"><h2>Review Map</h2>
+                    <div class="text-description">
+                        Tools:
+                    </div>
+                    <ul>
+                        <li>Yandex API</li>
+                        <li>Vanilla js</li>
+                        <li>Webpack</li>
+                    </ul>
+                    <a class="visit-work" href="https://alex-lorem.github.io/wine.github.io/dist/" target="_blank">Visit</a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="text"><h2>Chocco</h2>
+                    <div class="text-description">
+                        Tools:
+                    </div>
+                    <ul>
+                        <li>Ops</li>
+                        <li>Scss</li>
+                        <li>Yandex Map</li>
+                        <li>Youtube player</li>
+                        <li>XMLHttpRequest</li>
+                        <li>Svg sprite</li>
+                    </ul>
+                    <a class="visit-work" href="https://alex-lorem.github.io/bars.github.io/" target="_blank">Visit</a>
+                </div>
+            </div>
+            <div class="slide">
+                <div class="text"><h2>Bouncy</h2>
+                    <div class="text-description">
+                        Tools:
+                    </div>
+                    <ul>
+                        <li>Scss</li>
+                        <li>Mixitup</li>
+                        <li>Swiper</li>
+                        <li>Gulp</li>
+                        <li>Npm</li>
+                        <li>Sprite</li>
+                    </ul>
+                    <a class="visit-work" href="https://alex-lorem.github.io/bouncy.github.io/dist/" target="_blank">Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
-<!--    <section class="works"></section>-->
-<!--    </div>-->
-<!--    <a href="https://alex-lorem.github.io/gitogram/#/" target="_blank" class="works__item"><img src="./img/work-1.png" alt=""><div class="hover-text">visit</div></a>-->
-<!--    <a href="https://alex-lorem.github.io/food.github.io/dist/" target="_blank" class="works__item"><img src="./img/work-2.png" alt=""><div class="hover-text">visit</div></a>-->
-<!--    <a href="https://alex-lorem.github.io/wine.github.io/dist/" target="_blank" class="works__item"><img src="./img/work-3.png" alt=""><div class="hover-text">visit</div></a>-->
-<!--    <a href="https://alex-lorem.github.io/bars.github.io/" target="_blank" class="works__item"><img src="./img/work-4.png" alt=""><div class="hover-text">visit</div></a>-->
-<!--    <a href="https://alex-lorem.github.io/bouncy.github.io/dist/" target="_blank" class="works__item"><img src="./img/work-5.png" alt=""><div class="hover-text">visit</div></a>-->
-<!--    <a class="email" href="mailto:alexandershevchenko2004@gmail.com" target="_blank">Email: alexandershevchenko2004@gmail.com</a>-->
-<!--    <a href="tel:+380665712861" class="number">Phone number: +380665712861</a>-->
-<!--    <div class="contacts__social">-->
-<!--        <a href="https://www.instagram.com/selfcare.cmd/" target="_blank">inst</a>-->
-<!--        <a href="https://github.com/Alex-Lorem" target="_blank">github</a>-->
-<!--        <a href="https://t.me/tohaloh" target="_blank">telegram</a>-->
-<!--    </div>-->
+
 
 
 <script src="script.min.js"></script>
-<script>
-    var canvas = document.getElementById("glslCanvas");
-    var sandbox = new GlslCanvas(canvas);
-    var texCounter = 0;
-    var sandbox_content = "";
-    var sandbox_title = "";
-    var sandbox_author = "";
-    var sandbox_thumbnail = "";
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-
-    function parseQuery (qstr) {
-        var query = {};
-        var a = qstr.split('&');
-        for (var i in a) {
-            var b = a[i].split('=');
-            query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
-        }
-        return query;
-    }
-
-    function load(url) {
-        // Make the request and wait for the reply
-        fetch(url)
-            .then(function (response) {
-                // If we get a positive response...
-                if (response.status !== 200) {
-                    console.log('Error getting shader. Status code: ' + response.status);
-                    return;
-                }
-                // console.log(response);
-                return response.text();
-            })
-            .then(function(content) {
-                sandbox_content = content;
-                sandbox.load(content);
-
-                var title = addTitle();
-                var author = addAuthor();
-                if ( title === "unknown" && author === "unknown") {
-                    document.getElementById("credits").style.visibility = "hidden";
-                } else {
-                    document.getElementById("credits").style.visibility = "visible";
-                }
-
-                addMeta({
-                    'title' : title + ' by ' + author,
-                    'type' : 'website',
-                    'url': window.location.href,
-                    'image': sandbox_thumbnail
-                })
-            })
-    }
-
-    function addTitle() {
-        var result = sandbox_content.match(/\/\/\s*[T|t]itle\s*:\s*([\w|\s|\@|\(|\)|\-|\_]*)/i);
-        if (result && !(result[1] === ' ' || result[1] === '')) {
-            sandbox_title = result[1].replace(/(\r\n|\n|\r)/gm, '');
-            var title_el = document.getElementById("title").innerHTML = sandbox_title;
-            return sandbox_title;
-        }
-        else {
-            return "unknown";
-        }
-    }
-
-    function addAuthor() {
-        var result = sandbox_content.match(/\/\/\s*[A|a]uthor\s*[\:]?\s*([\w|\s|\@|\(|\)|\-|\_]*)/i);
-        if (result && !(result[1] === ' ' || result[1] === '')) {
-            sandbox_author = result[1].replace(/(\r\n|\n|\r)/gm, '');
-            document.getElementById("author").innerHTML = sandbox_author;
-            return sandbox_author;
-        }
-        else {
-            return "unknown";
-        }
-    }
-
-    function addMeta(obj) {
-        for (var key in obj) {
-            var meta = document.createElement('meta');
-            meta.setAttribute('og:'+key, obj[key]);
-            document.getElementsByTagName('head')[0].appendChild(meta);
-        }
-    }
-
-    var query = parseQuery(window.location.search.slice(1));
-    if (query && query.log) {
-        sandbox_thumbnail = 'https://thebookofshaders.com/log/' + query.log + '.png';
-        load('https://thebookofshaders.com/log/' + query.log + '.frag');
-    }
-
-    if (window.location.hash !== '') {
-        var hashes = location.hash.split('&');
-        for (var i in hashes) {
-            var ext = hashes[i].substr(hashes[i].lastIndexOf('.') + 1);
-            var path = hashes[i];
-
-            // Extract hash if is present
-            if (path.search('#') === 0) {
-                path = path.substr(1);
-            }
-
-            if (ext === 'frag') {
-                load(path);
-            }
-            else if (ext === 'png' || ext === 'jpg' || ext === 'PNG' || ext === 'JPG') {
-                sandbox.setUniform("u_tex"+texCounter.toString(), path);
-                texCounter++;
-            }
-        }
-    }
-</script>
-
-
-<script>
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-    gsap.registerPlugin(ScrollTrigger);
-    let bodyScrollBar = Scrollbar.init(document.body, {
-        damping: 0.1,
-        delegateTo: document,
-    });
-    ScrollTrigger.scrollerProxy(".scroller", {
-        scrollTop(value) {
-            if (arguments.length) {
-                bodyScrollBar.scrollTop = value;
-            }
-            return bodyScrollBar.scrollTop;
-        },
-    });
-    bodyScrollBar.addListener(ScrollTrigger.update);
-
-
-
-
-
-
-
-    gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
-
-    var images = gsap.utils.toArray('.panel:not(.purple)');
-
-    images.forEach((image, i) => {
-
-        var tl = gsap.timeline({
-
-            scrollTrigger: {
-                trigger: "section#about",
-                scroller: ".scroller",
-                start: () => "top -" + (window.innerHeight*(i+0.5)),
-                end: () => "+=" + window.innerHeight,
-                scrub: true,
-                toggleActions: "play none reverse none",
-                invalidateOnRefresh: false,
-            }
-
-        })
-
-        tl
-            .to(image, { height: 0 })
-        ;
-
-    });
-
-
-
-
-
-
-
-    gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
-
-    var texts = gsap.utils.toArray('.panel-text');
-
-    texts.forEach((text, i) => {
-
-        var tl = gsap.timeline({
-
-            scrollTrigger: {
-                trigger: "section#about",
-                scroller: ".scroller",
-                start: () => "top -" + (window.innerHeight*i),
-                end: () => "+=" + window.innerHeight,
-                scrub: true,
-                toggleActions: "play none reverse none",
-                invalidateOnRefresh: false,
-            }
-
-        })
-
-        tl
-            .to(text, { duration: 0.33, opacity: 1, y:"50%" })
-            .to(text, { duration: 0.33, opacity: 0, y:"0%" }, 0.66)
-        ;
-
-    });
-
-
-
-
-
-    ScrollTrigger.create({
-
-        trigger: "section#about",
-        scroller: ".scroller",
-        scrub: true,
-        markers: false,
-        pin: true,
-        start: () => "top top",
-        end: () => "+=" + ((images.length + 1) * window.innerHeight),
-        invalidateOnRefresh: false,
-
-    });
-
-</script>
 </body>
 </html>

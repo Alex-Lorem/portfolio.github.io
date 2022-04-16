@@ -10,27 +10,8 @@
     width: 550px;
   }
 }
-.first{
-  height: 100vh;
-}
 .scroller {
   height: 100vh;
-}
-
-.orange {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100vh;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .text {
@@ -38,17 +19,14 @@
 }
 
 #about {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   height: 100vh;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.about-container{
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
@@ -60,6 +38,7 @@
   overflow: hidden;
   width: 450px;
   height: 80vh;
+  margin-right: 100px;
 }
 
 .panel-text {
@@ -69,35 +48,33 @@
   z-index: 1;
   width: 100%;
   height: 100%;
-  font-size: 40px;
+  font-size: 35px;
   text-align:center;
   transform:translateY(100%);
   opacity: 0;
 }
 
-.panel-text.blue-text {
-
-}
-
-.panel-text.red-text {
-
-}
 
 .panel-text.purple-text {
   top: -18%;
 
 }
-
+.info{
+  background: black;
+}
+#info2{
+  &:before{
+    z-index: -1;
+  }
+}
 .panel-text.orange-text {
   color: orange;
   top: -18%;
 }
 
-
-
-
-
-
+.panel-text.info-text{
+  font-size: 25px;
+}
 .p-wrap {
   position: relative;
   overflow: hidden;
@@ -115,12 +92,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: center;
+  overflow: hidden;
 }
 
-.panel._2 {
-  z-index: 1;
-  background: pink;
-}
 
 .panel.me {
   z-index: auto;
@@ -140,5 +114,24 @@
 .panel.chess {
   z-index: auto;
   background-image: url("./img/chess.png");
+}
+.panel.info{
+  z-index: auto;
+  ul {
+    z-index: auto;
+    position: relative;
+    height: 75%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+  }
+}
+#info1{
+  height: 100%;
+  display: flex;
+  align-items: center;
 
+}
+#info2{
+  @extend #info1
 }
