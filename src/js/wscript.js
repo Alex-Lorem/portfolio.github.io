@@ -180,19 +180,11 @@ window.onload = function () {
 //
 //
 //
-const bg = [
-    './img/work-1.png',
-    './img/work-2.png',
-    './img/work-3.jpg',
-    './img/work-4.png',
-    './img/work-5.png',
-]
+
 
 const slides = document.querySelectorAll(".slide");
 
 slides.forEach((slide, idx) => {
-    slide.style.backgroundImage = `url("${bg[idx]}")`;
-
     slide.addEventListener("click", (e) => {
         slides.forEach((slide) => {
             slide.classList.remove("active");

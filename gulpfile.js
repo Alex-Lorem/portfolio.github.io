@@ -16,12 +16,18 @@ const {SRC_PATH, DIST_PATH, FONTS_PATH, IMG_PATH, STYLE_LIBS, JS_LIBS} = require
 const gulpif = require('gulp-if');
 const env = process.env.NODE_ENV;
 const sourcemaps = require('gulp-sourcemaps');
+const webp = require("gulp-webp");
 
 
 
 
-
-
+task('img-convert',
+    () => {
+        return src(['src/img/*','!src/img/*.svg'])
+            .pipe(webp({quality: 80}))
+            .pipe(dest("./dist/img"));
+    }
+);
 task(
     'clean',
     () => {

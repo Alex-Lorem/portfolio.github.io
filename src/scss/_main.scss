@@ -68,3 +68,22 @@ section{
     transform: rotate(45deg);
   }
 }
+.plug{
+  display: none;
+  position: fixed;
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+@media(max-width: 1100px) {
+  .scroll-content{
+    overflow: hidden;
+  }
+  .plug {
+    text-align: center;
+    padding-top: 25%;
+    display: block;
+  }
+}
