@@ -19,6 +19,7 @@ window.onload = function () {
         "grainDensity": 1,
         "grainWidth": 1,
         "grainHeight": 1
+
     }
 
     if(window.innerWidth > 1200) {
