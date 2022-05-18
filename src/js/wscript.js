@@ -27,7 +27,7 @@ window.onload = function () {
         grained("#first", options);
         grained("#about", options);
     } else{
-        //grained("#scroller", options);
+        grained("#scroller", options);
     }
 
 //preloader
