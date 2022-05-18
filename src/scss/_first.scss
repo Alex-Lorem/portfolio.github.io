@@ -55,6 +55,9 @@ nav{
 
     }
     @include phones{
+      font-size: 22px;
+    }
+    @media(max-width: 360px) {
       font-size: 20px;
     }
 
@@ -62,6 +65,10 @@ nav{
         left: 0;
         right: auto;
         width: 100%;
+        @include tablets{
+          width: 0;
+          left: 0;
+        }
       }
 
   }
