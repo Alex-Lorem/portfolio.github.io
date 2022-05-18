@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "gulp": "cross-env NODE_ENV=dev gulp ",
-    "build": "cross-env NODE_ENV=prod gulp build"
+    "build": "cross-env NODE_ENV=prod gulp build "
   },
   "repository": {
     "type": "git",
@@ -19,15 +19,20 @@
   "homepage": "https://github.com/Alex-Lorem/portfolio.github.io#readme",
   "devDependencies": {
     "@babel/cli": "^7.17.0",
-    "@babel/core": "^7.17.2",
+    "@babel/core": "^7.17.10",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.7",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.5",
+    "babel-preset-latest": "^6.24.1",
     "browser-sync": "^2.27.5",
     "controls-state": "^2.0.0",
     "cross-env": "^7.0.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
+    "gulp-better-rollup": "^4.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-ext-replace": "^0.3.0",
@@ -43,7 +48,8 @@
     "jquery": "^3.6.0",
     "node-sass": "^6.0.1",
     "sass": "^1.43.2",
-    "smooth-scrollbar": "^8.7.4"
-  },
-  "dependencies": {}
+    "smooth-scrollbar": "^8.7.4",
+    "webpack": "^5.72.0",
+    "webpack-stream": "^7.0.0"
+  }
 }

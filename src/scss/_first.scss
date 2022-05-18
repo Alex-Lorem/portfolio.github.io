@@ -1,26 +1,27 @@
 
 .canvas--wrapper{
   height: 70%;
-  padding-top: 15px;
+  padding: 15px 20px 0 20px;
 }
 
 .first{
-  height: 100%;
+  height: 100vh;
 }
 .intro{
   height: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto 0 auto;
+  margin: 0 auto 10px auto;
   max-width: 600px;
-  padding: 0 20px;
+  padding: 0 20px 20px 20px;
   h1{
     width: 100%;
   }
-  @include phones{
-    height: auto;
+  @include tablets-height{
+    max-width: 500px;
   }
+
 }
 nav{
   display: flex;
@@ -28,6 +29,15 @@ nav{
   justify-content: space-between;
   position: relative;
   transition: all 1s ease;
+  @include phones{
+    margin-top: 50px;
+  }
+  @include tablets-height{
+    margin-top: 50px;
+  }
+  @include slippers{
+    margin-top: 30px;
+  }
 }
   #to-works, #to-about, #to-contacts,{
     font-size: 30px;
@@ -47,13 +57,13 @@ nav{
     @include phones{
       font-size: 20px;
     }
-    @media (hover: hover) and (pointer: fine) {
+
       &:hover::before{
         left: 0;
         right: auto;
         width: 100%;
       }
-    }
+
   }
 
 #to-about{
@@ -79,19 +89,13 @@ nav{
   }
 }
 
-@keyframes opacitys {
-  0%{opacity: 0;}
-  100%{opacity: 1;}
-}
 .hello{
-  font-family: 'ShareTechMono';
+  font-family: 'ShareTechMono', sans-serif;
   font-size: 49px;
-  min-width: 300px;
-}
-@include phones{
-  .first {
-    .intro {
-      height: auto;
-    }
+  width: 100%;
+  min-height: 57px;
+  @include tablets-height{
+    min-height: 75px;
   }
 }
+

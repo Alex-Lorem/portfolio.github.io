@@ -7,8 +7,8 @@ module.exports = {
         "src/scss/*.scss"
     ],
     JS_LIBS : [
-        "node_modules/jquery/dist/jquery.min.js",
         "node_modules/smooth-scrollbar/dist/smooth-scrollbar.js",
+        "node_modules/jquery/dist/jquery.min.js",
         "src/js/*.js"
     ]
 }

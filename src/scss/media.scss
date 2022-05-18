@@ -3,7 +3,11 @@
     @content;
   }
 }
-
+@mixin tablets-height {
+  @media screen and (max-height:$tablets){
+    @content;
+  }
+}
 @mixin phones {
   @media screen and (max-width:$phones){
     @content;
@@ -12,5 +16,10 @@
 @mixin slippers {
   @media screen and (max-width:$slippers){
     @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: $turnOffLibs){
+    @content
   }
 }

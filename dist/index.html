@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div  class="scroller">
+<div  class="scroller" id="scroller">
 
     <section class="first" id="first">
         <div class="canvas--wrapper">
@@ -207,9 +207,9 @@
                             </g>
                         </svg>
                         <nav>
-                            <a href="" id="to-about">about me</a>
-                            <a href="" id="to-works">works</a>
-                            <a href="#nav-contacts" id="to-contacts">contacts</a>
+                            <a href="#about" id="to-about">about me</a>
+                            <a href="#works" id="to-works">works</a>
+                            <a href="#info1" id="to-contacts">contacts</a>
                         </nav>
                     </div>
                 </section>
@@ -235,22 +235,29 @@
                     <li class="ag-glitch_item"></li>
                 </ul>
             </div>
+            <div class="hidden-text">Hi! I am Alex.</div>
             <div class="panel map"></div>
+            <div class="hidden-text">Front-end developer currently based in Ukraine.</div>
             <div class="panel nau"></div>
+            <div class="hidden-text orange-text">I am studying at the National Aviation University to be a programmer.</div>
             <div class="panel chess"></div>
+            <div class="hidden-text purple-text">My hobbies are chess and box, also I like reading books and api documentaion</div>
+            <div class="hidden-text info-text">My skills:</div>
             <div class="panel info" >
                 <div id="info1">
                 <ul>
                     <li>Vue 3</li>
                     <li>Javascript</li>
+                    <li>Gulp</li>
+                    <li>Axios</li>
                     <li>HTML/CSS</li>
                     <li>Scss</li>
-                    <li>Gulp</li>
                     <li>Git</li>
                     <li>Adaptive/cross-browser layout</li>
                 </ul>
                 </div>
             </div>
+            <div class="hidden-text">Get in touch:</div>
             <div class="panel info"  >
                 <div id="info2">
                 <ul >
@@ -275,7 +282,7 @@
 
     </section>
 
-    <section class="works">
+    <section class="works" id="works">
         <h2>Works:</h2>
         <div class="slider">
             <div class="slide active">
@@ -295,7 +302,7 @@
 
                 </div>
 
-                <img class="slide-work" src="img/work-1.png" alt="">
+                <img class="slide-work-image" src="img/work-1.png" alt="">
 
             </div>
             <div class="slide">
@@ -316,7 +323,7 @@
                 </div>
 
 
-                    <img class="slide-work" src="img/work-2.png" alt="">
+                    <img class="slide-work-image" src="img/work-2.png" alt="">
 
             </div>
             <div class="slide">
@@ -332,7 +339,7 @@
                     <a class="visit-work" href="https://alex-lorem.github.io/wine.github.io/dist/" target="_blank">Visit</a>
                 </div>
 
-                    <img class="slide-work" src="img/work-3.jpg" alt="">
+                    <img class="slide-work-image" src="img/work-3.jpg" alt="">
 
             </div>
             <div class="slide">
@@ -351,7 +358,7 @@
                     <a class="visit-work" href="https://alex-lorem.github.io/bars.github.io/" target="_blank">Visit</a>
                 </div>
 
-                    <img class="slide-work" src="img/work-4.png" alt="">
+                    <img class="slide-work-image" src="img/work-4.png" alt="">
 
             </div>
             <div class="slide">
@@ -365,12 +372,11 @@
                         <li>Swiper</li>
                         <li>Gulp</li>
                         <li>Npm</li>
-                        <li>Sprite</li>
                     </ul>
                     <a class="visit-work" href="https://alex-lorem.github.io/bouncy.github.io/dist/" target="_blank">Visit</a>
                 </div>
 
-                    <img class="slide-work" src="img/work-5.png" alt="">
+                    <img class="slide-work-image" src="img/work-5.png" alt="">
 
             </div>
         </div>
@@ -379,7 +385,7 @@
 
 
 
-<div class="plug"><h1>nowadays site supports only desktop version</h1></div>
+
 <script src="script.min.js"></script>
 </body>
 </html>

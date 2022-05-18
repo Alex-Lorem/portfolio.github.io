@@ -1,13 +1,16 @@
+// require('./gsap.min.js');
+// require('./noise.js');
+// require('./ScrollTrigger.min.js');
+// let GlslCanvas = require('./moon.js');
+// let Scrollbar = require('node_modules/smooth-scrollbar/dist/smooth-scrollbar.js');
+// let $ = require('node_modules/jquery/dist/jquery.min.js');
 
 
 window.onload = function () {
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
-// This is needed if the user scrolls down during page load and you want to make sure the page is scrolled to the top once it's fully loaded. This has Cross-browser support.
     window.scrollTo(0,0);
-// wait for everything to be ready
-
     var options = {
         "animate": true,
         "patternWidth": 285.56,
@@ -17,10 +20,16 @@ window.onload = function () {
         "grainWidth": 1,
         "grainHeight": 1
     }
-    grained("#first", options);
-    grained("#about", options);
-    grained("#info2", options);
-    grained("#info1", options);
+
+    if(window.innerWidth > 1200) {
+        grained("#info2", options);
+        grained("#info1", options);
+        grained("#first", options);
+        grained("#about", options);
+    } else{
+        //grained("#scroller", options);
+    }
+
 //preloader
     setTimeout(function () {
 
@@ -35,12 +44,6 @@ window.onload = function () {
     },3500);
 
 
-
-
-
-//close
-
-//to-about
 
 
     //mars
@@ -80,54 +83,11 @@ window.onload = function () {
                 sandbox_content = content;
                 sandbox.load(content);
 
-                var title = addTitle();
-                var author = addAuthor();
-                if ( title === "unknown" && author === "unknown") {
-                    document.getElementById("credits").style.visibility = "hidden";
-                } else {
-                    document.getElementById("credits").style.visibility = "visible";
-                }
 
-                addMeta({
-                    'title' : title + ' by ' + author,
-                    'type' : 'website',
-                    'url': window.location.href,
-                    'image': sandbox_thumbnail
-                })
             })
     }
 
-    function addTitle() {
-        var result = sandbox_content.match(/\/\/\s*[T|t]itle\s*:\s*([\w|\s|\@|\(|\)|\-|\_]*)/i);
-        if (result && !(result[1] === ' ' || result[1] === '')) {
-            sandbox_title = result[1].replace(/(\r\n|\n|\r)/gm, '');
-            var title_el = document.getElementById("title").innerHTML = sandbox_title;
-            return sandbox_title;
-        }
-        else {
-            return "unknown";
-        }
-    }
 
-    function addAuthor() {
-        var result = sandbox_content.match(/\/\/\s*[A|a]uthor\s*[\:]?\s*([\w|\s|\@|\(|\)|\-|\_]*)/i);
-        if (result && !(result[1] === ' ' || result[1] === '')) {
-            sandbox_author = result[1].replace(/(\r\n|\n|\r)/gm, '');
-            document.getElementById("author").innerHTML = sandbox_author;
-            return sandbox_author;
-        }
-        else {
-            return "unknown";
-        }
-    }
-
-    function addMeta(obj) {
-        for (var key in obj) {
-            var meta = document.createElement('meta');
-            meta.setAttribute('og:'+key, obj[key]);
-            document.getElementsByTagName('head')[0].appendChild(meta);
-        }
-    }
 
     var query = parseQuery(window.location.search.slice(1));
     if (query && query.log) {
@@ -156,177 +116,174 @@ window.onload = function () {
         }
     }
 
+//
+//
+//
+//
+//
+//
+//
+// works
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+    const slides = document.querySelectorAll(".slide");
 
+    slides.forEach((slide, idx) => {
+        slide.addEventListener("click", (e) => {
+            slides.forEach((slide) => {
+                slide.classList.remove("active");
+            });
+            if(window.innerWidth > 768) {
+                e.currentTarget.classList.add("active");
+            }
+        });
+    });
 }//даже не думай
 
 
-//
-//
-//
-//
-//
-//
-//
-//
-// works
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-
-const slides = document.querySelectorAll(".slide");
-
-slides.forEach((slide, idx) => {
-    slide.addEventListener("click", (e) => {
-        slides.forEach((slide) => {
-            slide.classList.remove("active");
-        });
-        e.currentTarget.classList.add("active");
-    });
-});
-//
-//
-//
-//
-//
-//
-//
-//
-// works
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+window.scrollTo(0, document.body.scrollHeight);
 window.scrollTo({
     top: 0,
     behavior: "smooth"
 });
-gsap.registerPlugin(ScrollTrigger);
-let bodyScrollBar = Scrollbar.init(document.body, {
-    damping: 0.1,
-    delegateTo: document,
-});
+
 const firstHeight = $('.first').height();
-const contactsHeight = firstHeight + $('#about').height() * 5.5
+const contactsTop = firstHeight + $('#about').height() * 5.5
 
-//nav contacts
+if(window.innerWidth > 1200) {
 
-$('#to-contacts').click(e =>{
-    e.preventDefault();
-    bodyScrollBar.scrollTo(0, contactsHeight, 2000)
-});
-$('#to-works').click(e =>{
-    e.preventDefault();
-    bodyScrollBar.scrollTo(0, contactsHeight + 2500, 2000)
-});
+    let bodyScrollBar = Scrollbar.init(document.body, {
+        damping: 0.1,
+        delegateTo: document,
+    });
+
+    //nav contacts
+
+    $('#to-contacts').click(e => {
+        e.preventDefault();
+        //bodyScrollBar.scrollIntoView(document.getElementById('info1'));
+        bodyScrollBar.scrollTo(0, contactsTop, 3000)
+    });
+    $('#to-works').click(e => {
+        e.preventDefault();
+        bodyScrollBar.scrollIntoView(document.getElementById('works'));
+    });
 // nav about
-$('#to-about').click(e =>{
-    e.preventDefault();
-    bodyScrollBar.scrollTo(0, firstHeight, 2000)
-});
-ScrollTrigger.scrollerProxy(".scroller", {
-    scrollTop(value) {
-        if (arguments.length) {
-            bodyScrollBar.scrollTop = value;
-        }
-        return bodyScrollBar.scrollTop;
-    },
-});
-bodyScrollBar.addListener(ScrollTrigger.update);
+    $('#to-about').click(e => {
+        e.preventDefault();
+        bodyScrollBar.scrollIntoView(document.getElementById('about'));
+    });
+    gsap.registerPlugin(ScrollTrigger);
 
 
 
 
 
 
-
-gsap.set(".panel", { zIndex: (i, target, targets) => targets.length - i });
-
-var images = gsap.utils.toArray('.panel:not(.purple)');
-
-images.forEach((image, i) => {
-
-    var tl = gsap.timeline({
-
-        scrollTrigger: {
-            trigger: "section#about",
-            scroller: ".scroller",
-            start: () => "top -" + (window.innerHeight*(i+0.5)),
-            end: () => "+=" + window.innerHeight,
-            scrub: true,
-            toggleActions: "play none reverse none",
-            invalidateOnRefresh: false,
-        }
-
-    })
-
-    tl
-        .to(image, { height: 0 })
-    ;
-
-});
+    ScrollTrigger.scrollerProxy(".scroller", {
+        scrollTop(value) {
+            if (arguments.length) {
+                bodyScrollBar.scrollTop = value;
+            }
+            return bodyScrollBar.scrollTop;
+        },
+    });
+    bodyScrollBar.addListener(ScrollTrigger.update);
 
 
+    gsap.set(".panel", {zIndex: (i, target, targets) => targets.length - i});
+
+    var images = gsap.utils.toArray('.panel:not(.purple)');
+
+    images.forEach((image, i) => {
+
+        var tl = gsap.timeline({
+
+            scrollTrigger: {
+                trigger: "section#about",
+                scroller: ".scroller",
+                start: () => "top -" + (window.innerHeight * (i + 0.5)),
+                end: () => "+=" + window.innerHeight,
+                scrub: true,
+                toggleActions: "play none reverse none",
+                invalidateOnRefresh: false,
+            }
+
+        })
+
+        tl
+            .to(image, {height: 0})
+        ;
+
+    });
 
 
+    gsap.set(".panel-text", {zIndex: (i, target, targets) => targets.length - i});
+
+    var texts = gsap.utils.toArray('.panel-text');
+
+    texts.forEach((text, i) => {
+
+        var tl = gsap.timeline({
+
+            scrollTrigger: {
+                trigger: "section#about",
+                scroller: ".scroller",
+                start: () => "top -" + (window.innerHeight * i),
+                end: () => "+=" + window.innerHeight,
+                scrub: true,
+                toggleActions: "play none reverse none",
+                invalidateOnRefresh: false,
+            }
+
+        })
+
+        tl
+            .to(text, {duration: 0.33, opacity: 1, y: "50%"})
+            .to(text, {duration: 0.33, opacity: 0, y: "0%"}, 0.66)
+        ;
+
+    });
 
 
+    ScrollTrigger.create({
 
-gsap.set(".panel-text", { zIndex: (i, target, targets) => targets.length - i });
+        trigger: "section#about",
+        scroller: ".scroller",
+        scrub: true,
+        markers: false,
+        pin: true,
+        start: () => "top top",
+        end: () => "+=" + ((images.length + 1) * window.innerHeight),
+        invalidateOnRefresh: false,
 
-var texts = gsap.utils.toArray('.panel-text');
+    });
 
-texts.forEach((text, i) => {
-
-    var tl = gsap.timeline({
-
-        scrollTrigger: {
-            trigger: "section#about",
-            scroller: ".scroller",
-            start: () => "top -" + (window.innerHeight*i),
-            end: () => "+=" + window.innerHeight,
-            scrub: true,
-            toggleActions: "play none reverse none",
-            invalidateOnRefresh: false,
-        }
-
-    })
-
-    tl
-        .to(text, { duration: 0.33, opacity: 1, y:"50%" })
-        .to(text, { duration: 0.33, opacity: 0, y:"0%" }, 0.66)
-    ;
-
-});
+} else{
+    Scrollbar.destroyAll();
 
 
+    const ulHeight = document.querySelector('.panel').scrollHeight;
 
+    document.documentElement.style.setProperty('--ul-height', ulHeight + 'px');
+    const columnHeight = document.querySelector('.p-wrap').scrollHeight;
+    document.documentElement.style.setProperty('--column-height', columnHeight + 'px');
 
+    $(document).on('click', 'a[href^="#"]', function (event) {
+        event.preventDefault();
 
-ScrollTrigger.create({
-
-    trigger: "section#about",
-    scroller: ".scroller",
-    scrub: true,
-    markers: false,
-    pin: true,
-    start: () => "top top",
-    end: () => "+=" + ((images.length + 1) * window.innerHeight),
-    invalidateOnRefresh: false,
-
-});
+        $('html, body').animate({
+            scrollTop: $($.attr(this, 'href')).offset().top
+        }, 500);
+    });
+}

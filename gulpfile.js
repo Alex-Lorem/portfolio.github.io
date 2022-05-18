@@ -17,6 +17,8 @@ const gulpif = require('gulp-if');
 const env = process.env.NODE_ENV;
 const sourcemaps = require('gulp-sourcemaps');
 const webp = require("gulp-webp");
+const webpackStream = require('webpack-stream');
+const webpackConfig = require('./webpack.config.js');
 
 
 
@@ -71,7 +73,7 @@ task(
                 browsers: ["last 2 versions"],
                 cascade: false
             })))
-            //.pipe(gulpif(env === 'prod', gcmq())) и это херня
+            .pipe(gulpif(env === 'prod', gcmq()))
             .pipe(gulpif(env === 'prod', cleanCSS()))
             .pipe(gulpif(env === 'dev', sourcemaps.write()))
             .pipe(dest("dist"))
@@ -82,12 +84,8 @@ task(
     'scripts',
     () => {
         return src(JS_LIBS)
-            .pipe(concat("script.min.js",{newLine: ';'}))
-            .pipe(gulpif(env === 'prod', babel({
-                presets: ['@babel/env'],
-                compact: false
-            })))
-            .pipe(gulpif(env === 'prod', uglify()))
+            .pipe(gulpif(env === 'dev', concat("script.min.js",{newLine: ';'})))
+            .pipe(gulpif(env === 'prod', webpackStream(webpackConfig)))
             .pipe(dest("dist"))
             .pipe(reload({ stream: true}));
     })
