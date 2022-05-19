@@ -1,9 +1,9 @@
-// require('./gsap.min.js');
-// require('./noise.js');
-// require('./ScrollTrigger.min.js');
-// let GlslCanvas = require('./moon.js');
-// let Scrollbar = require('node_modules/smooth-scrollbar/dist/smooth-scrollbar.js');
-// let $ = require('node_modules/jquery/dist/jquery.min.js');
+require('./gsap.min.js');
+require('./noise.js');
+require('./ScrollTrigger.min.js');
+let GlslCanvas = require('./moon.js');
+let Scrollbar = require('node_modules/smooth-scrollbar/dist/smooth-scrollbar.js');
+let $ = require('node_modules/jquery/dist/jquery.min.js');
 
 
 window.onload = function () {
@@ -57,6 +57,7 @@ window.onload = function () {
     var sandbox_thumbnail = "";
     canvas.style.width = '100%';
     canvas.style.height = '100%';
+    canvas.style.backgroundColor = 'rgb(7,7,7)';
 
     function parseQuery (qstr) {
         var query = {};
@@ -150,13 +151,6 @@ window.onload = function () {
     });
 }//даже не думай
 
-
-
-window.scrollTo(0, document.body.scrollHeight);
-window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-});
 
 const firstHeight = $('.first').height();
 const contactsTop = firstHeight + $('#about').height() * 5.5
