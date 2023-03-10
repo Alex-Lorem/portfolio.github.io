@@ -10,8 +10,7 @@ const reload = browserSync.reload;
 const autoprefixer = require('gulp-autoprefixer');
 const gcmq = require('gulp-group-css-media-queries'); // это тоже херня
 const cleanCSS = require('gulp-clean-css');
-const babel = require('gulp-babel');
-const uglify = require('gulp-uglify');
+
 const {SRC_PATH, DIST_PATH, FONTS_PATH, IMG_PATH, STYLE_LIBS, JS_LIBS} = require('./gulp.config');
 const gulpif = require('gulp-if');
 const env = process.env.NODE_ENV;

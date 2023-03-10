@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div  class="scroller" id="scroller">
+<div class="scroller" id="scroller">
 
     <section class="first" id="first">
         <div class="canvas--wrapper">
@@ -106,178 +106,206 @@
         }
         ">
 
-                        </canvas>
-                    </div>
+            </canvas>
+        </div>
 
-                    <div class="intro">
-                        <svg version="1.1" id="glitchText" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                             class="hello" viewBox="0 0 600 100">
-                            <style type="text/css">
+        <div class="intro">
+            <svg version="1.1" id="glitchText" xmlns="http://www.w3.org/2000/svg"
+                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                 class="hello" viewBox="0 0 600 100">
+                <style type="text/css">
+                    text {
+                        filter: url(#filter);
+                        fill: white;
 
-                                <![CDATA[
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                    }
 
-        	                text {
-                                    filter: url(#filter);
-                                    fill: white;
+                </style>
+                <defs>
 
-                                    -webkit-font-smoothing: antialiased;
-                                    -moz-osx-font-smoothing: grayscale;
-                                }
-                                ]]>
-                            </style>
-                            <defs>
+                    <filter id="filter">
+                        <feFlood flood-color="black" result="black"/>
+                        <feFlood flood-color="red" result="flood1"/>
+                        <feFlood flood-color="limegreen" result="flood2"/>
+                        <feOffset in="SourceGraphic" dx="3" dy="0" result="off1a"/>
+                        <feOffset in="SourceGraphic" dx="2" dy="0" result="off1b"/>
+                        <feOffset in="SourceGraphic" dx="-3" dy="0" result="off2a"/>
+                        <feOffset in="SourceGraphic" dx="-2" dy="0" result="off2b"/>
+                        <feComposite in="flood1" in2="off1a" operator="in" result="comp1"/>
+                        <feComposite in="flood2" in2="off2a" operator="in" result="comp2"/>
 
-                                <filter id="filter">
-                                    <feFlood flood-color="black" result="black" />
-                                    <feFlood flood-color="red" result="flood1" />
-                                    <feFlood flood-color="limegreen" result="flood2" />
-                                    <feOffset in="SourceGraphic" dx="3" dy="0" result="off1a"/>
-                                    <feOffset in="SourceGraphic" dx="2" dy="0" result="off1b"/>
-                                    <feOffset in="SourceGraphic" dx="-3" dy="0" result="off2a"/>
-                                    <feOffset in="SourceGraphic" dx="-2" dy="0" result="off2b"/>
-                                    <feComposite in="flood1" in2="off1a" operator="in"  result="comp1" />
-                                    <feComposite in="flood2" in2="off2a" operator="in" result="comp2" />
+                        <feMerge x="0" width="100%" result="merge1">
+                            <feMergeNode in="black"/>
+                            <feMergeNode in="comp1"/>
+                            <feMergeNode in="off1b"/>
 
-                                    <feMerge x="0" width="100%" result="merge1">
-                                        <feMergeNode in = "black" />
-                                        <feMergeNode in = "comp1" />
-                                        <feMergeNode in = "off1b" />
+                            <animate
+                                    attributeName="y"
+                                    id="y"
+                                    dur="4s"
 
-                                        <animate
-                                                attributeName="y"
-                                                id = "y"
-                                                dur ="4s"
+                                    values='104px; 104px; 30px; 105px; 30px; 2px; 2px; 50px; 40px; 105px; 105px; 20px; 6ßpx; 40px; 104px; 40px; 70px; 10px; 30px; 104px; 102px'
 
-                                                values = '104px; 104px; 30px; 105px; 30px; 2px; 2px; 50px; 40px; 105px; 105px; 20px; 6ßpx; 40px; 104px; 40px; 70px; 10px; 30px; 104px; 102px'
+                                    keyTimes='0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'
 
-                                                keyTimes = '0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'
+                                    repeatCount="indefinite"/>
 
-                                                repeatCount = "indefinite" />
+                            <animate attributeName="height"
+                                     id="h"
+                                     dur="4s"
 
-                                        <animate attributeName="height"
-                                                 id = "h"
-                                                 dur ="4s"
+                                     values='10px; 0px; 10px; 30px; 50px; 0px; 10px; 0px; 0px; 0px; 10px; 50px; 40px; 0px; 0px; 0px; 40px; 30px; 10px; 0px; 50px'
 
-                                                 values = '10px; 0px; 10px; 30px; 50px; 0px; 10px; 0px; 0px; 0px; 10px; 50px; 40px; 0px; 0px; 0px; 40px; 30px; 10px; 0px; 50px'
+                                     keyTimes='0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'
 
-                                                 keyTimes = '0; 0.362; 0.368; 0.421; 0.440; 0.477; 0.518; 0.564; 0.593; 0.613; 0.644; 0.693; 0.721; 0.736; 0.772; 0.818; 0.844; 0.894; 0.925; 0.939; 1'
-
-                                                 repeatCount = "indefinite" />
-                                    </feMerge>
+                                     repeatCount="indefinite"/>
+                        </feMerge>
 
 
-                                    <feMerge x="0" width="100%" y="60px" height="65px" result="merge2">
-                                        <feMergeNode in = "black" />
-                                        <feMergeNode in = "comp2" />
-                                        <feMergeNode in = "off2b" />
+                        <feMerge x="0" width="100%" y="60px" height="65px" result="merge2">
+                            <feMergeNode in="black"/>
+                            <feMergeNode in="comp2"/>
+                            <feMergeNode in="off2b"/>
 
-                                        <animate attributeName="y"
-                                                 id = "y"
-                                                 dur ="4s"
-                                                 values = '103px; 104px; 69px; 53px; 42px; 104px; 78px; 89px; 96px; 100px; 67px; 50px; 96px; 66px; 88px; 42px; 13px; 100px; 100px; 104px;'
+                            <animate attributeName="y"
+                                     id="y"
+                                     dur="4s"
+                                     values='103px; 104px; 69px; 53px; 42px; 104px; 78px; 89px; 96px; 100px; 67px; 50px; 96px; 66px; 88px; 42px; 13px; 100px; 100px; 104px;'
 
-                                                 keyTimes = '0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513; 0.548; 0.577; 0.613; 1'
+                                     keyTimes='0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513; 0.548; 0.577; 0.613; 1'
 
-                                                 repeatCount = "indefinite" />
+                                     repeatCount="indefinite"/>
 
-                                        <animate attributeName="height"
-                                                 id = "h"
-                                                 dur = "4s"
+                            <animate attributeName="height"
+                                     id="h"
+                                     dur="4s"
 
-                                                 values = '0px; 0px; 0px; 16px; 16px; 12px; 12px; 0px; 0px; 5px; 10px; 22px; 33px; 11px; 0px; 0px; 10px'
+                                     values='0px; 0px; 0px; 16px; 16px; 12px; 12px; 0px; 0px; 5px; 10px; 22px; 33px; 11px; 0px; 0px; 10px'
 
-                                                 keyTimes = '0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513;  1'
+                                     keyTimes='0; 0.055; 0.100; 0.125; 0.159; 0.182; 0.202; 0.236; 0.268; 0.326; 0.357; 0.400; 0.408; 0.461; 0.493; 0.513;  1'
 
-                                                 repeatCount = "indefinite" />
-                                    </feMerge>
+                                     repeatCount="indefinite"/>
+                        </feMerge>
 
-                                    <feMerge>
-                                        <feMergeNode in="SourceGraphic" />
+                        <feMerge>
+                            <feMergeNode in="SourceGraphic"/>
 
-                                        <feMergeNode in="merge1" />
-                                        <feMergeNode in="merge2" />
+                            <feMergeNode in="merge1"/>
+                            <feMergeNode in="merge2"/>
 
-                                    </feMerge>
-                                </filter>
+                        </feMerge>
+                    </filter>
 
-                            </defs>
+                </defs>
 
-                            <g>
-                                <text x="0" y="100">Hello there. I am Alex.</text>
-                            </g>
-                        </svg>
-                        <nav>
-                            <a href="#about" id="to-about">about me</a>
-                            <a href="#works" id="to-works">works</a>
-                            <a href="#info1" id="to-contacts">contacts</a>
-                        </nav>
-                    </div>
-                </section>
+                <g>
+                    <text x="0" y="100">Hello there. I am Alex.</text>
+                </g>
+            </svg>
+            <nav>
+                <a href="#about" id="to-about">about me</a>
+                <a href="#works" id="to-works">works</a>
+                <a href="#info1" id="to-contacts">contacts</a>
+            </nav>
+        </div>
+    </section>
     <section id="about">
         <div class="about-container">
-        <div class="text-wrap">
-            <div class="panel-text">Hi! I am Alex.</div>
-            <div class="panel-text">Front-end developer currently based in Ukraine.</div>
-            <div class="panel-text orange-text">I am studying at the National Aviation University to be a programmer.</div>
-            <div class="panel-text purple-text">My hobbies are chess and box, also I like reading books and api documentaion</div>
-            <div class="panel-text info-text">My skills:</div>
-            <div class="panel-text info-text"  id="nav-contacts">Get in touch:</div>
-
-        </div>
-
-        <div class="p-wrap">
-            <div class="panel me">
-                <ul class="ag-glitch_list">
-                    <li class="ag-glitch_item"></li>
-                    <li class="ag-glitch_item"></li>
-                    <li class="ag-glitch_item"></li>
-                    <li class="ag-glitch_item"></li>
-                    <li class="ag-glitch_item"></li>
-                </ul>
-            </div>
-            <div class="hidden-text">Hi! I am Alex.</div>
-            <div class="panel map"></div>
-            <div class="hidden-text">Front-end developer currently based in Ukraine.</div>
-            <div class="panel nau"></div>
-            <div class="hidden-text orange-text">I am studying at the National Aviation University to be a programmer.</div>
-            <div class="panel chess"></div>
-            <div class="hidden-text purple-text">My hobbies are chess and box, also I like reading books and api documentaion</div>
-            <div class="hidden-text info-text">My skills:</div>
-            <div class="panel info" >
-                <div id="info1">
-                <ul>
-                    <li>Vue 3</li>
-                    <li>Javascript</li>
-                    <li>Gulp</li>
-                    <li>Axios</li>
-                    <li>HTML/CSS</li>
-                    <li>Scss</li>
-                    <li>Git</li>
-                    <li>Adaptive/cross-browser layout</li>
-                </ul>
+            <div class="text-wrap">
+                <div class="panel-text">Hi! I am Alex.</div>
+                <div class="panel-text orange-text">Full stack web developer with more than one year commercial hands-on
+                    experience.
                 </div>
-            </div>
-            <div class="hidden-text">Get in touch:</div>
-            <div class="panel info"  >
-                <div id="info2">
-                <ul >
-                    <li>
-                        <a href="https://www.instagram.com/selfcare.cmd/" target="_blank">inst</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Alex-Lorem" target="_blank">github</a>
-                    </li>
-                    <li>
-                        <a href="https://t.me/tohaloh" target="_blank">telegram</a>
-                    </li>
-                    <li>
-                        <a class="email" href="mailto:alexandershevchenko2004@gmail.com" target="_blank">email: alexandershevchenko2004@gmail.com</a>
-                    </li>
-                </ul>
+                <div class="panel-text purple-text">My life is pretty exciting, I try to diversify it while I'm young and strong
                 </div>
+                <div class="panel-text info-text">Frameworks/Languages:</div>
+                <div class="panel-text info-text">Web 3.0:</div>
+                <div class="panel-text info-text">Additional tools/packages/skills:</div>
+                <div class="panel-text info-text" id="nav-contacts">Get in touch:</div>
+
             </div>
 
-        </div>
+            <div class="p-wrap">
+                <div class="panel me">
+                    <ul class="ag-glitch_list">
+                        <li class="ag-glitch_item"></li>
+                        <li class="ag-glitch_item"></li>
+                        <li class="ag-glitch_item"></li>
+                        <li class="ag-glitch_item"></li>
+                        <li class="ag-glitch_item"></li>
+                    </ul>
+                </div>
+                <div class="panel" id="dev"></div>
+                <div class="hidden-text">Hi! I am Alex.</div>
+                <div class="hidden-text" id="fullstack-caption">Full stack web developer with more than one year commercial hands-on
+                    experience.
+                </div>
+                <div class="panel life"></div>
+                <div class="hidden-text purple-text" id="mylife-caption">My life is pretty exciting, I try to diversify it while I'm young and strong
+                </div>
+                <div class="hidden-text info-text">Frameworks/Languages:</div>
+                <div class="panel info">
+                    <div id="info1">
+                        <ul>
+                            <li>Vue 3</li>
+                            <li>Express.js</li>
+                            <li>Solidity (blockchain)</li>
+                            <li>Move (blockchain)</li>
+                            <li>Vanilla js</li>
+                            <li>HTML/CSS</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden-text">Web 3.0:</div>
+                <div class="panel info">
+                    <div id="info2">
+                        <ul>
+                            <li>ERC721/ERC721A/ERC1155 Standards</li>
+                            <li>Gaz optimizations</li>
+                            <li>Connect any wallet on front-end, sign authorization, smart-contract calls</li>
+                            <li>Merkle Tree/Signature authentication</li>
+                            <li>Alchemy/Infura/Ethereum API</li>
+                            <li>Trainee Uniswap/Pancake</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden-text">Additional tools/packages/skills:</div>
+                <div class="panel info">
+                    <div id="info3">
+                        <ul>
+                            <li>Gulp/Webpack</li>
+                            <li>Adaptive/cross-browser layout</li>
+                            <li>Git</li>
+                            <li>SQL/NoSQL DB</li>
+                            <li>REST API/JWT Authorization/Websockets</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hidden-text">Get in touch:</div>
+                <div class="panel info">
+                    <div id="info4">
+                        <ul>
+                            <li>
+                                <a href="https://www.instagram.com/selfcare.cmd/" target="_blank">inst</a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/Alex-Lorem" target="_blank">github</a>
+                            </li>
+                            <li>
+                                <a href="https://t.me/tohaloh" target="_blank">telegram</a>
+                            </li>
+                            <li>
+                                <a class="email" href="mailto:alexandershevchenko2004@gmail.com" target="_blank">email:
+                                    alexandershevchenko2004@gmail.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
     </section>
@@ -287,22 +315,64 @@
         <div class="slider">
             <div class="slide active">
                 <div class="text">
+                    <h2>CLIQU3</h2>
+                    <div class="text-description">
+                        Tools:
+                    </div>
+                    <ul>
+                        <li>Vue 3</li>
+                        <li>Express.js</li>
+                        <li>Ethers.js</li>
+                        <li>Parse SDK</li>
+                        <li>Auth by crypto-wallets signs</li>
+                        <li>ERC721A smart contract with Merkle Tree whitelist</li>
+                        <li>Alchemy API</li>
+                    </ul>
+                    <a class="visit-work visit-prod" href="https://cliqu3.xyz" target="_blank" style="color: gold;" >Live production</a>
+
+                    <a class="visit-work" href="https://github.com/Alex-Lorem/cliqu3" target="_blank" style="color: cyan;">Sources</a>
+
+                </div>
+
+                <img class="slide-work-image" src="img/cliqu3.gif" alt="">
+
+            </div>
+
+            <div class="slide">
+                <div class="text">
                     <h2>Gitogram/</h2>
                     <div class="text-description">
                         Tools:
                     </div>
                     <ul>
-                        <li>Vue</li>
-                        <li>Rest API</li>
+                        <li>Vue 3</li>
+                        <li>Vuex, Vue-Router, Rest API</li>
                         <li>GitHub OAuth</li>
                         <li>Axios</li>
-                        <li>Yarn</li>
                     </ul>
-                    <a class="visit-work" href="https://alex-lorem.github.io/gitogram/#/" target="_blank">Visit</a>
+                    <a class="visit-work visit-prod" href="https://alex-lorem.github.io/gitogram/#/" target="_blank" >Live production</a>
+                    <a class="visit-work" href="https://github.com/Alex-Lorem/gitogram" target="_blank" >Sources</a>
 
                 </div>
 
-                <img class="slide-work-image" src="img/work-1.png" alt="">
+                <img class="slide-work-image" src="img/gitogram.png" alt="">
+
+            </div>
+            <div class="slide">
+                <div class="text">
+                    <h2 id="websocket-header">Websocket server & telegram api bot</h2>
+                    <div class="text-description">
+                        Tools:
+                    </div>
+                    <ul>
+                        <li>Ethers.js websockets</li>
+                        <li>Telegram API</li>
+                        <li>Background worker</li>
+                    </ul>
+                    <a class="visit-work" href="https://github.com/Alex-Lorem/marketplace-listener" target="_blank" >Sources</a>
+                </div>
+
+                <img class="slide-work-image" src="img/telegram.png" alt="">
 
             </div>
             <div class="slide">
@@ -312,78 +382,43 @@
                         Tools:
                     </div>
                     <ul>
-                        <li>Aos</li>
+                        <li>AOS</li>
                         <li>Slick slider</li>
                         <li>Gulp</li>
                         <li>Adaptive/cross-browser layout</li>
-                        <li>Svg sprite</li>
-                        <li>Npm</li>
+                        <li>Svg sprite, webp optimization</li>
                     </ul>
-                    <a class="visit-work" href="https://alex-lorem.github.io/food.github.io/dist/" target="_blank">Visit</a>
+                    <a class="visit-work visit-prod" href="https://alex-lorem.github.io/food.github.io/dist/" target="_blank" >Live production</a>
+                    <a class="visit-work" href="https://github.com/Alex-Lorem/food.github.io" target="_blank" >Sources</a>
+
                 </div>
 
 
-                    <img class="slide-work-image" src="img/work-2.png" alt="">
+                <img class="slide-work-image" src="img/food.png" alt="">
 
             </div>
             <div class="slide">
-                <div class="text"><h2>Review Map</h2>
+                <div class="text">
+                    <h2>Aptos NFT Move Module</h2>
                     <div class="text-description">
                         Tools:
                     </div>
                     <ul>
-                        <li>Yandex API</li>
-                        <li>Vanilla js</li>
-                        <li>Webpack</li>
+                        <li>Aptos Framework</li>
+                        <li>Aptos Coin</li>
+                        <li>My special video about infrastructure on YouTube: <a href="https://youtu.be/Bvpjbn3UI2A" target="_blank">https://youtu.be/Bvpjbn3UI2A</a> </li>
                     </ul>
-                    <a class="visit-work" href="https://alex-lorem.github.io/georeview/" target="_blank">Visit</a>
+                    <a class="visit-work" href="https://github.com/Alex-Lorem/aptos" target="_blank" >Sources</a>
+
                 </div>
 
-                    <img class="slide-work-image" src="img/work-3.jpg" alt="">
 
-            </div>
-            <div class="slide">
-                <div class="text"><h2>Chocco</h2>
-                    <div class="text-description">
-                        Tools:
-                    </div>
-                    <ul>
-                        <li>Ops</li>
-                        <li>Scss</li>
-                        <li>Yandex Map</li>
-                        <li>Youtube player</li>
-                        <li>XMLHttpRequest</li>
-                        <li>Svg sprite</li>
-                    </ul>
-                    <a class="visit-work" href="https://alex-lorem.github.io/bars.github.io/" target="_blank">Visit</a>
-                </div>
-
-                    <img class="slide-work-image" src="img/work-4.png" alt="">
-
-            </div>
-            <div class="slide">
-                <div class="text"><h2>Bouncy</h2>
-                    <div class="text-description">
-                        Tools:
-                    </div>
-                    <ul>
-                        <li>Scss</li>
-                        <li>Mixitup</li>
-                        <li>Swiper</li>
-                        <li>Gulp</li>
-                        <li>Npm</li>
-                    </ul>
-                    <a class="visit-work" href="https://alex-lorem.github.io/bouncy.github.io/dist/" target="_blank">Visit</a>
-                </div>
-
-                    <img class="slide-work-image" src="img/work-5.png" alt="">
+                <img class="slide-work-image" src="img/aptos.jpg" alt="">
 
             </div>
         </div>
     </section>
 </div>
-
-
 
 
 <script src="script.min.js"></script>

@@ -48,7 +48,7 @@
 
 .text-wrap {
   position: relative;
-  overflow: hidden;
+
   width: 100%;
   height: 80vh;
   margin-right: 100px;
@@ -58,11 +58,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .panel-text {
-      &:nth-child(2) {
-        transform: translate(0, 30px);
-      }
-    }
+
   }
   @media(max-width: 900px) {
     margin-right: 50px;
@@ -80,9 +76,9 @@
   width: 100%;
   height: 100%;
   font-size: 35px;
-  text-align: center;
   transform: translateY(100%);
   opacity: 0;
+  text-align: center;
   @include laptop {
     opacity: 1;
     transform: none;
@@ -107,7 +103,7 @@
 }
 
 .panel-text.purple-text {
-  top: -18%;
+  top: -20%;
   @include laptop {
     position: relative;
     top: -60px;
@@ -126,14 +122,26 @@
     z-index: -1;
   }
 }
-
+#dev{
+  background: #000;
+  @include tablets{
+    display: none;
+  }
+}
 .panel-text.orange-text {
   color: orange;
-  top: -18%;
+  top: -10%;
+  left: 45%;
+  text-align: center;
+  width: 132%;
+  @include laptop{
+    z-index: 5;
+    transform: translate(32%, 10px);
+  }
 }
 
 .panel-text.info-text {
-  font-size: 25px;
+  font-size: 29px;
   @include laptop {
     position: relative;
     top: -85px;
@@ -844,19 +852,9 @@
   }
 }
 
-.panel.map {
+.panel.life {
   z-index: auto;
-  background-image: url("./img/map.jpg");
-}
-
-.panel.nau {
-  z-index: auto;
-  background-image: url("./img/nau.jpg");
-}
-
-.panel.chess {
-  z-index: auto;
-  background-image: url("./img/chess.jpg");
+  background-image: url("./img/life.jpg");
 }
 
 .panel.info {
@@ -892,4 +890,17 @@
 
 #info2 {
   @extend #info1
+}
+#info3 {
+  @extend #info1
+}
+#info4 {
+  @extend #info1
+}
+#fullstack-caption{
+  font-size: 24px;
+  color: orange;
+}
+#mylife-caption{
+  font-size: 24px;
 }

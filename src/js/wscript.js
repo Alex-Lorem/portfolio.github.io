@@ -3,7 +3,7 @@ require('./noise.js');
 require('./ScrollTrigger.min.js');
 let GlslCanvas = require('./moon.js');
 let Scrollbar = require('node_modules/smooth-scrollbar/dist/smooth-scrollbar.js');
-let $ = require('node_modules/jquery/dist/jquery.min.js');
+let $ = require('jquery');
 
 
 window.onload = function () {
@@ -11,7 +11,7 @@ window.onload = function () {
         history.scrollRestoration = 'manual';
     }
     window.scrollTo(0,0);
-    var options = {
+    const options = {
         "animate": true,
         "patternWidth": 285.56,
         "patternHeight": 285.56,
@@ -23,47 +23,35 @@ window.onload = function () {
     }
 
     if(window.innerWidth > 1200) {
-        grained("#info2", options);
         grained("#info1", options);
+        grained("#info2", options);
+        grained("#info3", options);
+        grained("#info4", options);
         grained("#first", options);
         grained("#about", options);
+        grained("#dev", options);
     } else{
         grained("#scroller", options);
+        grained("#dev", options);
     }
-
-//preloader
-    setTimeout(function () {
-
-        $('.preloader').addClass('preloader-disactive');
-
-        setTimeout(function () {
-
-            $('.preloader').addClass('preloader-display');
-
-        },2000);
-
-    },3500);
-
 
 
 
     //mars
-    var canvas = document.getElementById("glslCanvas");
-    var sandbox = new GlslCanvas(canvas);
-    var texCounter = 0;
-    var sandbox_content = "";
-    var sandbox_title = "";
-    var sandbox_author = "";
-    var sandbox_thumbnail = "";
+    let canvas = document.getElementById("glslCanvas");
+    let sandbox = new GlslCanvas(canvas);
+    let texCounter = 0;
+    let sandbox_content = "";
+    let sandbox_thumbnail = "";
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.backgroundColor = 'rgb(7,7,7)';
 
     function parseQuery (qstr) {
-        var query = {};
-        var a = qstr.split('&');
-        for (var i in a) {
-            var b = a[i].split('=');
+        let query = {};
+        let a = qstr.split('&');
+        for (let i in a) {
+            let b = a[i].split('=');
             query[decodeURIComponent(b[0])] = decodeURIComponent(b[1]);
         }
         return query;
@@ -91,17 +79,17 @@ window.onload = function () {
 
 
 
-    var query = parseQuery(window.location.search.slice(1));
+    let query = parseQuery(window.location.search.slice(1));
     if (query && query.log) {
         sandbox_thumbnail = 'https://thebookofshaders.com/log/' + query.log + '.png';
         load('https://thebookofshaders.com/log/' + query.log + '.frag');
     }
 
     if (window.location.hash !== '') {
-        var hashes = location.hash.split('&');
-        for (var i in hashes) {
-            var ext = hashes[i].substr(hashes[i].lastIndexOf('.') + 1);
-            var path = hashes[i];
+        let hashes = location.hash.split('&');
+        for (let i in hashes) {
+            let ext = hashes[i].substr(hashes[i].lastIndexOf('.') + 1);
+            let path = hashes[i];
 
             // Extract hash if is present
             if (path.search('#') === 0) {
@@ -153,7 +141,7 @@ window.onload = function () {
 
 
 const firstHeight = $('.first').height();
-const contactsTop = firstHeight + $('#about').height() * 5.5
+const contactsTop = firstHeight + $('#about').height() * 6.5
 
 if(window.innerWidth > 1200) {
 
@@ -198,11 +186,11 @@ if(window.innerWidth > 1200) {
 
     gsap.set(".panel", {zIndex: (i, target, targets) => targets.length - i});
 
-    var images = gsap.utils.toArray('.panel:not(.purple)');
+    let images = gsap.utils.toArray('.panel:not(.purple)');
 
     images.forEach((image, i) => {
 
-        var tl = gsap.timeline({
+        let tl = gsap.timeline({
 
             scrollTrigger: {
                 trigger: "section#about",
@@ -223,13 +211,13 @@ if(window.innerWidth > 1200) {
     });
 
 
-    gsap.set(".panel-text", {zIndex: (i, target, targets) => targets.length - i});
+    gsap.set(".panel-text", {zIndex: (i, target, targets) => targets.length - i + 1});
 
-    var texts = gsap.utils.toArray('.panel-text');
+    let texts = gsap.utils.toArray('.panel-text');
 
     texts.forEach((text, i) => {
 
-        var tl = gsap.timeline({
+        let tl = gsap.timeline({
 
             scrollTrigger: {
                 trigger: "section#about",
