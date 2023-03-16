@@ -10,6 +10,7 @@ window.onload = function () {
     if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
     }
+
     window.scrollTo(0,0);
     const options = {
         "animate": true,
@@ -23,16 +24,10 @@ window.onload = function () {
     }
 
     if(window.innerWidth > 1200) {
-        grained("#info1", options);
-        grained("#info2", options);
-        grained("#info3", options);
-        grained("#info4", options);
         grained("#first", options);
         grained("#about", options);
-        grained("#dev", options);
     } else{
         grained("#scroller", options);
-        grained("#dev", options);
     }
 
 
@@ -141,7 +136,7 @@ window.onload = function () {
 
 
 const firstHeight = $('.first').height();
-const contactsTop = firstHeight + $('#about').height() * 6.5
+const contactsTop = firstHeight + $('#about').height() * 5.5
 
 if(window.innerWidth > 1200) {
 
@@ -154,7 +149,6 @@ if(window.innerWidth > 1200) {
 
     $('#to-contacts').click(e => {
         e.preventDefault();
-        //bodyScrollBar.scrollIntoView(document.getElementById('info1'));
         bodyScrollBar.scrollTo(0, contactsTop, 3000)
     });
     $('#to-works').click(e => {

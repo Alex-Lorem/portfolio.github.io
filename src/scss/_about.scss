@@ -103,51 +103,40 @@
 }
 
 .panel-text.purple-text {
-  top: -20%;
+  top: -17%;
+  width: 114%;
   @include laptop {
     position: relative;
-    top: -60px;
+    top: -115px;
   }
 }
 
-.info {
-  background: black;
-  @include laptop {
-    background: transparent;
-  }
-}
-
-#info2 {
-  &:before {
-    z-index: -1;
-  }
-}
 #dev{
   background: #000;
   @include tablets{
     display: none;
   }
 }
-.panel-text.orange-text {
+.panel-text.main-text{
   color: orange;
-  top: -10%;
-  left: 45%;
+  top: -19%;
   text-align: center;
-  width: 132%;
-  @include laptop{
-    z-index: 5;
-    transform: translate(32%, 10px);
-  }
+  width: 112%;
+
 }
 
 .panel-text.info-text {
   font-size: 29px;
   @include laptop {
     position: relative;
-    top: -85px;
+    top: -67px;
   }
 }
-
+@include laptop{
+  #framework-caption {
+    top: -135px;
+  }
+}
 #nav-contacts {
   @include laptop {
     top: -35px;
@@ -182,6 +171,7 @@
   left: 0;
   top: 15%;
   z-index: 1;
+  border-radius: 25px;
   width: 450px;
   height: 405px;
   background-size: cover;
@@ -858,45 +848,30 @@
 }
 
 .panel.info {
+  background: #111010;
   z-index: auto;
-
+  display: flex;
+  align-items: center;
   ul {
     z-index: auto;
     position: relative;
-    height: 75%;
+    padding-left: 30px;
+    height: 100%;
     display: flex;
+    list-style: inside;
     justify-content: space-around;
     flex-direction: column;
-    @include laptop {
-      height: 100%;
 
-    }
   }
 
+
   @include laptop {
+    background: transparent;
     padding: 0;
     height: var(--ul-height);
   }
 }
 
-#info1 {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  @include laptop {
-
-  }
-}
-
-#info2 {
-  @extend #info1
-}
-#info3 {
-  @extend #info1
-}
-#info4 {
-  @extend #info1
-}
 #fullstack-caption{
   font-size: 24px;
   color: orange;
