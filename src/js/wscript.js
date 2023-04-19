@@ -23,7 +23,7 @@ window.onload = function () {
 
     }
 
-    if(window.innerWidth > 1200) {
+    if(window.innerWidth > 1300) {
         grained("#first", options);
         grained("#about", options);
     } else{
@@ -138,7 +138,7 @@ window.onload = function () {
 const firstHeight = $('.first').height();
 const contactsTop = firstHeight + $('#about').height() * 5.5
 
-if(window.innerWidth > 1200) {
+if(window.innerWidth > 1300) {
 
     let bodyScrollBar = Scrollbar.init(document.body, {
         damping: 0.1,
