@@ -136,7 +136,7 @@ window.onload = function () {
 
 
 const firstHeight = $('.first').height();
-const contactsTop = firstHeight + $('#about').height() * 5.5
+const contactsTop = firstHeight + $('#about').height() * 6.5
 
 if(window.innerWidth > 1300) {
 
@@ -151,6 +151,7 @@ if(window.innerWidth > 1300) {
         e.preventDefault();
         bodyScrollBar.scrollTo(0, contactsTop, 3000)
     });
+
     $('#to-works').click(e => {
         e.preventDefault();
         bodyScrollBar.scrollIntoView(document.getElementById('works'));
@@ -185,7 +186,6 @@ if(window.innerWidth > 1300) {
     images.forEach((image, i) => {
 
         let tl = gsap.timeline({
-
             scrollTrigger: {
                 trigger: "section#about",
                 scroller: ".scroller",

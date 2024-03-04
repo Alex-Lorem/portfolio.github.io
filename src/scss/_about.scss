@@ -118,7 +118,7 @@
   }
 }
 .panel-text.main-text{
-  color: orange;
+
   top: -19%;
   text-align: center;
   width: 112%;
@@ -848,11 +848,12 @@
 }
 
 .panel.info {
-  background: #111010;
+  background: #000;
   z-index: auto;
   display: flex;
   align-items: center;
   ul {
+    font-size: 18px;
     z-index: auto;
     position: relative;
     padding-left: 30px;
@@ -874,7 +875,6 @@
 
 #fullstack-caption{
   font-size: 24px;
-  color: orange;
 }
 #mylife-caption{
   font-size: 24px;
